@@ -52,7 +52,7 @@
       ],
       "imgs": [
         {
-          "src": "/images/addToHomeScreen/chromium.png",
+          "src": "./images/guidance/chromium.png",
           "alt": "Tap the Add to home screen Icon"
         }
       ]
@@ -67,7 +67,7 @@
       ],
       "imgs": [
         {
-          "src": "/images/addToHomeScreen/chromium.png",
+          "src": "./images/guidance/chromium.png",
           "alt": "Tap the Add to home screen Icon"
         }
       ]
@@ -81,7 +81,7 @@
       ],
       "imgs": [
         {
-          "src": "/images/addToHomeScreen/iphone.png",
+          "src": "./images/guidance/iphone.png",
           "alt": "Tap the Share Icon and select Add to home screen entry"
         }
       ]
@@ -95,7 +95,7 @@
       ],
       "imgs": [
         {
-          "src": "/images/addToHomeScreen/ipad.png",
+          "src": "./images/guidance/ipad.png",
           "alt": "Tap the Add to home screen Icon"
         }
       ]
@@ -109,7 +109,7 @@
       ],
       "imgs": [
         {
-          "src": "/images/addToHomeScreen/firefoxAndroid.png",
+          "src": "./images/guidance/firefoxAndroid.png",
           "alt": "Tap the Add to home screen Icon"
         }
       ]
@@ -123,7 +123,7 @@
       ],
       "imgs": [
         {
-          "src": "/images/addToHomeScreen/firefoxAndroid.png",
+          "src": "./images/guidance/firefoxAndroid.png",
           "alt": "Tap the Add to home screen Icon"
         }
       ]
@@ -137,7 +137,7 @@
       ],
       "imgs": [
         {
-          "src": "/images/addToHomeScreen/opera.png",
+          "src": "./images/guidance/opera.png",
           "alt": "Tap the Add to home screen Icon"
         }
       ]

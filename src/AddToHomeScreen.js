@@ -7,7 +7,7 @@ export default function AddToHomeScreen({options}) {
 
     const DEFAULT_PROMPT = {
         title: 'Install Service Portal?',
-        src: '/images/logos/default/StoreLogo.png',
+        src: './images/defaultLogo.png',
         cancelMsg: 'Not Now',
         installMsg: 'Install'
     };
@@ -122,7 +122,7 @@ export default function AddToHomeScreen({options}) {
                         for (let index = 0; index < promptTarget.imgs.length; index++) {
                             let img = new Image();
 
-                            img.src = promptTarget.imgs[index].src;
+                            img.src = require(promptTarget.imgs[index].src);
                             img.alt = promptTarget.imgs[index].alt;
 
                             if (promptTarget.imgs[index].classes) {
@@ -580,7 +580,7 @@ export default function AddToHomeScreen({options}) {
         <div className="ath-container banner-bottom-center">
             <div className="ath-banner">
                 <div className="ath-banner-cell">
-                    <img alt="PWA" className="ath-prompt-logo" src="/images/logos/default/StoreLogo.png"/>
+                    <img alt="PWA" className="ath-prompt-logo" src="./images/defaultLogo.png"/>
                 </div>
                 <div className="ath-banner-title"/>
                 <div className="ath-banner-cell">

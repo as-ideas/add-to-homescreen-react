@@ -1,4 +1,4 @@
-const Path = require('path');
+const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
@@ -7,7 +7,7 @@ module.exports = {
         extensions: ['*', '.js', '.jsx']
     },
     output: {
-        path: Path.join(__dirname, './build'),
+        path: path.join(__dirname, './build'),
         filename: 'AddToHomeScreen.js',
         library: 'add-to-homescreen-react',
         libraryTarget: 'umd'
@@ -17,18 +17,24 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                include: Path.resolve(__dirname, 'src'),
+                include: path.resolve(__dirname, 'src'),
                 use: ['babel-loader']
             },
             {
                 test: /\.scss$/,
-                include: Path.resolve(__dirname, 'src'),
+                include: path.resolve(__dirname, 'src'),
                 use: [
                     'style-loader',
                     'css-loader',
                     'sass-loader'
                 ]
+            },
+            {
+                test: /\.(jpg|png|svg)$/,
+                include: path.resolve(__dirname, 'src'),
+                use: ['file-loader']
             }
+
         ]
     }
 };

@@ -43,7 +43,7 @@ The `customPromptContent` configuration parameter allows to globally define (for
 | **Configuration parameter** | **Description** | **Default Setting** |
 |---|---|---|
 | title | The title of the dialog. | `Install Service Portal?` |
-| src | The URL for the logo shown in the dialog. | `/images/logos/default/StoreLogo.png` |
+| src | The URL for the logo shown in the dialog. | `./images/defaultLogo.png` |
 | cancelMsg | The text of the dialog's cancel button. | `Not Now` |
 | installMsg | The text of the dialog's install button. | `Install` |
 
