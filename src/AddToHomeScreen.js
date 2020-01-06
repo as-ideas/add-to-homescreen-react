@@ -5,11 +5,9 @@ import AddToHomeScreenConfiguration from './addToHomeScreenConfiguration.json';
 
 export default function AddToHomeScreen({options}) {
 
-    const DEFAULT_LOGO = './images/defaultLogo.png';
-
     const DEFAULT_PROMPT = {
         title: 'Install Service Portal?',
-        src: DEFAULT_LOGO,
+        src: './images/defaultLogo.png',
         cancelMsg: 'Not Now',
         installMsg: 'Install'
     };
@@ -582,7 +580,7 @@ export default function AddToHomeScreen({options}) {
         <div className="ath-container banner-bottom-center">
             <div className="ath-banner">
                 <div className="ath-banner-cell">
-                    <img alt="Application Logo" className="ath-prompt-logo" src={require(DEFAULT_LOGO)}/>
+                    <img alt="Application Logo" className="ath-prompt-logo" src={require('./images/defaultLogo.png')}/>
                 </div>
                 <div className="ath-banner-title"/>
                 <div className="ath-banner-cell">
