@@ -582,7 +582,7 @@ export default function AddToHomeScreen({options}) {
         <div className="ath-container banner-bottom-center">
             <div className="ath-banner">
                 <div className="ath-banner-cell">
-                    <img alt="PWA" className="ath-prompt-logo" src={require(DEFAULT_LOGO)}/>
+                    <img alt="Application Logo" className="ath-prompt-logo" src={require(DEFAULT_LOGO)}/>
                 </div>
                 <div className="ath-banner-title"/>
                 <div className="ath-banner-cell">

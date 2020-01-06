@@ -33,7 +33,10 @@ module.exports = {
             {
                 test: /\.(jpg|png|svg)$/,
                 include: path.resolve(__dirname, 'src'),
-                use: ['file-loader']
+                loader: "url-loader",
+                options: {
+                    limit: Infinity
+                }
             }
 
         ]
