@@ -1,5 +1,6 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: './src/AddToHomeScreen.js',
@@ -7,7 +8,7 @@ module.exports = {
         extensions: ['*', '.js', '.jsx']
     },
     output: {
-        path: path.join(__dirname, './build'),
+        path: path.join(__dirname, 'build'),
         filename: 'AddToHomeScreen.js',
         library: 'add-to-homescreen-react',
         libraryTarget: 'umd'
@@ -36,5 +37,12 @@ module.exports = {
             }
 
         ]
-    }
+    },
+    plugins: [
+        new CopyWebpackPlugin([{
+            context: 'src/images',
+            from: '**/*',
+            to: path.resolve(__dirname, 'build/images')
+        }])
+    ]
 };
