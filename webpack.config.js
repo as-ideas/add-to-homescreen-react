@@ -1,4 +1,5 @@
 const Path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
     entry: './src/AddToHomeScreen.js',
@@ -7,8 +8,11 @@ module.exports = {
     },
     output: {
         path: Path.join(__dirname, './build'),
-        filename: 'AddToHomeScreen.js'
+        filename: 'AddToHomeScreen.js',
+        library: '',
+        libraryTarget: 'commonjs'
     },
+    externals: [nodeExternals()],
     module: {
         rules: [
             {
