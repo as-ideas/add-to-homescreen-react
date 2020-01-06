@@ -9,8 +9,8 @@ module.exports = {
     output: {
         path: Path.join(__dirname, './build'),
         filename: 'AddToHomeScreen.js',
-        library: '',
-        libraryTarget: 'commonjs'
+        library: 'add-to-homescreen-react',
+        libraryTarget: 'umd'
     },
     externals: [nodeExternals()],
     module: {
