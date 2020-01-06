@@ -1,0 +1,16 @@
+# Log files
+*.log
+
+# Package Files
+*.zip
+*.tar.gz
+
+# ideas files
+*.iml
+.idea
+
+# Sonar
+.scannerwork
+
+# Node.js
+node_modules/*

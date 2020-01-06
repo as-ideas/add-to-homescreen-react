@@ -1,0 +1,146 @@
+{
+  "appID": "ServicePortal",
+  "debug": false,
+  "logging": false,
+  "modal": false,
+  "mandatory": false,
+  "autoStart": true,
+  "skipFirstVisit": false,
+  "minPageViews": 0,
+  "startDelay": 1,
+  "lifespan": 15,
+  "displayPace": 1440,
+  "mustShowCustomPrompt": false,
+  "maxDisplayCount": 0,
+  "validLocation": [],
+  "onInit": null,
+  "onShow": null,
+  "onAdd": null,
+  "onInstall": null,
+  "onCancel": null,
+  "customCriteria": null,
+  "customPromptContent": {},
+  "athWrapper": ".ath-container",
+  "athGuidance": "ath-guidance",
+  "showClasses": [
+    "animated",
+    "d-flex"
+  ],
+  "showClass": "d-flex",
+  "hideClass": "d-none",
+  "customPromptElements": {
+    "title": ".ath-banner-title",
+    "body": ".ath-banner",
+    "logo": ".ath-prompt-logo",
+    "cancel": ".btn-cancel",
+    "install": ".btn-install"
+  },
+  "customPromptPlatformDependencies": {
+    "native": {
+      "showClasses": [
+        "fadeInUp",
+        "right-banner"
+      ]
+    },
+    "edge": {
+      "showClasses": [
+        "edge-wrapper",
+        "animated",
+        "fadeIn",
+        "d-block",
+        "right-banner"
+      ],
+      "imgs": [
+        {
+          "src": "/images/addToHomeScreen/chromium.png",
+          "alt": "Tap the Add to home screen Icon"
+        }
+      ]
+    },
+    "chromium": {
+      "showClasses": [
+        "chromium-wrapper",
+        "animated",
+        "fadeIn",
+        "d-block",
+        "right-banner"
+      ],
+      "imgs": [
+        {
+          "src": "/images/addToHomeScreen/chromium.png",
+          "alt": "Tap the Add to home screen Icon"
+        }
+      ]
+    },
+    "iphone": {
+      "showClasses": [
+        "iphone-wrapper",
+        "animated",
+        "fadeIn",
+        "d-block"
+      ],
+      "imgs": [
+        {
+          "src": "/images/addToHomeScreen/iphone.png",
+          "alt": "Tap the Share Icon and select Add to home screen entry"
+        }
+      ]
+    },
+    "ipad": {
+      "showClasses": [
+        "ipad-wrapper",
+        "animated",
+        "fadeIn",
+        "d-block"
+      ],
+      "imgs": [
+        {
+          "src": "/images/addToHomeScreen/ipad.png",
+          "alt": "Tap the Add to home screen Icon"
+        }
+      ]
+    },
+    "firefox": {
+      "showClasses": [
+        "firefox-wrapper",
+        "animated",
+        "fadeIn",
+        "d-block"
+      ],
+      "imgs": [
+        {
+          "src": "/images/addToHomeScreen/firefoxAndroid.png",
+          "alt": "Tap the Add to home screen Icon"
+        }
+      ]
+    },
+    "samsung": {
+      "showClasses": [
+        "samsung-wrapper",
+        "animated",
+        "fadeIn",
+        "d-block"
+      ],
+      "imgs": [
+        {
+          "src": "/images/addToHomeScreen/firefoxAndroid.png",
+          "alt": "Tap the Add to home screen Icon"
+        }
+      ]
+    },
+    "opera": {
+      "showClasses": [
+        "opera-home-screen-wrapper",
+        "animated",
+        "fadeIn",
+        "d-block"
+      ],
+      "imgs": [
+        {
+          "src": "/images/addToHomeScreen/opera.png",
+          "alt": "Tap the Add to home screen Icon"
+        }
+      ]
+    }
+  }
+}
