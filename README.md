@@ -9,10 +9,10 @@ Configuration is defined in the ``addToHomeScreenConfiguration.json`` file. The 
 |---|---|---|
 | appID | The id of the application. It is used as key for the local storage entry. | ``ServicePortal`` |
 | debug | Indicates the platform that should be simulated for debugging purposes. Overrides browser checks. Possible values: `native`, `firefox`, `ipad`, `iphone`, `opera`, `samsung`, `edge`, `chromium`, `false` | ``false`` |
-| logging | Activate logging to JS console for the module. Defaults to `true` when `debug` is not `false`. | false | 
-| modal | Prevent further actions until the message is closed. | `false` |
-| mandatory | User can't proceed without adding the app to the home screen. | `false` |
-| autoStart | Show the message automatically. | `true` |
+| activateLogging | Activate logging to JS console for the module. Defaults to `true` when `debug` is not `false`. | false | 
+| isModal | Prevent further actions until the message is closed. | `false` |
+| isMandatory | User can't proceed without adding the app to the home screen. | `false` |
+| startAutomatically | Show the message automatically. | `true` |
 | skipFirstVisit | Show message only to returning visitors (i.e. skip the first time the user visits). | `false` |
 | minPageViews | Show message only after minimum number of page views. | `0` |
 | startDelay | Show the message after that many seconds from page load. | `1` |
@@ -27,11 +27,6 @@ Configuration is defined in the ``addToHomeScreenConfiguration.json`` file. The 
 | onInstall | A function being executed when 'Install' button has been clicked. | `null` |
 | onCancel | A function being executed when 'Cancel' button has been clicked. | `null` |
 | customCriteria | A hook to provide either a custom method or a simple `true` (= always) or `false` (= never) value to control when it prompts. | `null` (the same as `true`)|
-| athWrapper | The CSS selector for the add-to-home-screen HTML container element. | `.ath-container` |
-| athGuidance | The CSS class for the HTML element within the prompt dialog that shows the add-to-home-screen guidance image(s). | `ath-guidance` |
-| showClasses | Additional CSS classes for the prompt dialog. | `['animated', 'd-flex']` |
-| showClass | CSS class that defines visibility of elements. Used for elements within the prompt dialog that are not always shown (the add-to-home-screen guidance image(s), for example). | `d-flex` |
-| hideClass | CSS class that defines hiding of elements.  Used for elements within the prompt dialog that are not always shown (the add-to-home-screen guidance image(s), for example). | `d-none` |
 | customPromptContent | Allows customization of the custom prompt dialog's content. See section [Custom Prompt Content](#custom-prompt-content) | `{}` |
 | customPromptElements | See section [Custom Prompt Elements](#custom-prompt-elements). | | 
 | customPromptPlatformDependencies | See section [Browser specific prompt dialog configuration](#browser-specific-prompt-dialog-configuration). | |

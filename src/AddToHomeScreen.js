@@ -1,12 +1,13 @@
+import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 
 import './addToHomeScreen.scss';
-import AddToHomeScreenConfiguration from './addToHomeScreenConfiguration.json';
+import DEFAULT_CONFIGURATION from './addToHomeScreenConfiguration.json';
 
-export default function AddToHomeScreen({ options }) {
+export default function AddToHomeScreen(props) {
 
   const DEFAULT_PROMPT = {
-    title: 'Install Service Portal?',
+    title: 'Install application?',
     cancelMsg: 'Not Now',
     installMsg: 'Install'
   };
@@ -20,16 +21,14 @@ export default function AddToHomeScreen({ options }) {
     pageViews: 0
   };
 
-  let configuration = Object.assign({}, AddToHomeScreenConfiguration, options);
-
-  doLog(`final configuration: ${ JSON.stringify(configuration) }`);
+  let configuration = buildConfiguration();
 
   let session = {};
   let platform = {};
   let guidanceTargetUrls = [];
   let isAthDialogShown = false;
-
   let showNativePrompt = false;
+
   let canPromptState;
   let beforeInstallPromptEvent;
   let autoHideTimer;
@@ -75,6 +74,23 @@ export default function AddToHomeScreen({ options }) {
       afterServiceWorkerCheck({});
     }
 
+  }
+
+  function buildConfiguration() {
+    let configuration = Object.assign({}, DEFAULT_CONFIGURATION, props);
+
+    configuration.customPromptContent = Object.assign({}, DEFAULT_CONFIGURATION.customPromptContent, props.customPromptContent);
+    configuration.customPromptElements = Object.assign({}, DEFAULT_CONFIGURATION.customPromptElements, props.customPromptElements);
+    configuration.customPromptPlatformDependencies = Object.assign({}, DEFAULT_CONFIGURATION.customPromptPlatformDependencies, props.customPromptPlatformDependencies);
+
+    for (let key in DEFAULT_CONFIGURATION.customPromptPlatformDependencies) {
+      if (DEFAULT_CONFIGURATION.customPromptPlatformDependencies.hasOwnProperty(key)) {
+        configuration.customPromptPlatformDependencies[key] = Object.assign({}, DEFAULT_CONFIGURATION.customPromptPlatformDependencies[key], props.customPromptPlatformDependencies[key]);
+      }
+    }
+
+    doLog(`final configuration: ${ JSON.stringify(configuration) }`);
+    return configuration;
   }
 
   function buildGuidanceURLs(prompts) {
@@ -163,19 +179,19 @@ export default function AddToHomeScreen({ options }) {
     updateSession();
 
     // override defaults that are dependent on each other
-    if (configuration && configuration.debug && (typeof configuration.logging === 'undefined')) {
-      configuration.logging = true;
+    if (configuration && configuration.debug && (typeof configuration.activateLogging === 'undefined')) {
+      configuration.activateLogging = true;
     }
 
     // normalize some options
-    configuration.mandatory = configuration.mandatory && ('standalone' in window.navigator || configuration.debug);
+    configuration.isMandatory = configuration.isMandatory && ('standalone' in window.navigator || configuration.debug);
 
     // this is forcing the user to add to home screen before anything can be done
     // the ideal scenario for this would be an enterprise business application
     // could also be a part of an onboarding workflow for a SAAS
-    configuration.modal = configuration.modal || configuration.mandatory;
+    configuration.isModal = configuration.isModal || configuration.isMandatory;
 
-    if (configuration.mandatory) {
+    if (configuration.isMandatory) {
       configuration.startDelay = -0.5; // make the popup hasty
     }
 
@@ -188,7 +204,7 @@ export default function AddToHomeScreen({ options }) {
       configuration.onInit.call(this);
     }
 
-    if (configuration.autoStart && !!beforeInstallPromptEvent) {
+    if (configuration.startAutomatically && !!beforeInstallPromptEvent) {
       doLog('Add to home screen: autoStart displaying callout');
       show();
     } else if (!showNativePrompt) {
@@ -198,7 +214,7 @@ export default function AddToHomeScreen({ options }) {
   }
 
   function doLog(logString) {
-    if (configuration.logging) {
+    if (configuration.activateLogging) {
       console.log(logString);
     }
   }
@@ -599,3 +615,105 @@ export default function AddToHomeScreen({ options }) {
       </div>
   );
 }
+
+AddToHomeScreen.propTypes = {
+  appId: PropTypes.string.isRequired,
+  debug: PropTypes.string,
+  activateLogging: PropTypes.bool,
+  isModal: PropTypes.bool,
+  isMandatory: PropTypes.bool,
+  startAutomatically: PropTypes.bool,
+  skipFirstVisit: PropTypes.bool,
+  minPageViews: PropTypes.number,
+  startDelay: PropTypes.number,
+  lifespan: PropTypes.number,
+  displayPace: PropTypes.number,
+  mustShowCustomPrompt: PropTypes.bool,
+  maxDisplayCount: PropTypes.number,
+  validLocation: PropTypes.arrayOf(PropTypes.string),
+  onInit: PropTypes.func,
+  onShow: PropTypes.func,
+  onAdd: PropTypes.func,
+  onInstall: PropTypes.func,
+  onCancel: PropTypes.func,
+  customCriteria: PropTypes.func,
+  customPromptContent: PropTypes.shape({
+    title: PropTypes.string,
+    src: PropTypes.string,
+    cancelMsg: PropTypes.string,
+    installMsg: PropTypes.string
+  }),
+  customPromptElements: PropTypes.shape({
+    title: PropTypes.string,
+    body: PropTypes.string,
+    logo: PropTypes.string,
+    cancel: PropTypes.string,
+    install: PropTypes.string
+  }),
+  customPromptPlatformDependencies: PropTypes.shape({
+    native: PropTypes.shape({
+      showClasses: PropTypes.arrayOf(PropTypes.string),
+      targetUrl: PropTypes.string,
+      imgs: PropTypes.shape({
+        src: PropTypes.string,
+        alt: PropTypes.string
+      })
+    }),
+    chromium: PropTypes.shape({
+      showClasses: PropTypes.arrayOf(PropTypes.string),
+      targetUrl: PropTypes.string,
+      imgs: PropTypes.shape({
+        src: PropTypes.string,
+        alt: PropTypes.string
+      })
+    }),
+    edge: PropTypes.shape({
+      showClasses: PropTypes.arrayOf(PropTypes.string),
+      targetUrl: PropTypes.string,
+      imgs: PropTypes.shape({
+        src: PropTypes.string,
+        alt: PropTypes.string
+      })
+    }),
+    iphone: PropTypes.shape({
+      showClasses: PropTypes.arrayOf(PropTypes.string),
+      targetUrl: PropTypes.string,
+      imgs: PropTypes.shape({
+        src: PropTypes.string,
+        alt: PropTypes.string
+      })
+    }),
+    ipad: PropTypes.shape({
+      showClasses: PropTypes.arrayOf(PropTypes.string),
+      targetUrl: PropTypes.string,
+      imgs: PropTypes.shape({
+        src: PropTypes.string,
+        alt: PropTypes.string
+      })
+    }),
+    firefox: PropTypes.shape({
+      showClasses: PropTypes.arrayOf(PropTypes.string),
+      targetUrl: PropTypes.string,
+      imgs: PropTypes.shape({
+        src: PropTypes.string,
+        alt: PropTypes.string
+      })
+    }),
+    samsung: PropTypes.shape({
+      showClasses: PropTypes.arrayOf(PropTypes.string),
+      targetUrl: PropTypes.string,
+      imgs: PropTypes.shape({
+        src: PropTypes.string,
+        alt: PropTypes.string
+      })
+    }),
+    opera: PropTypes.shape({
+      showClasses: PropTypes.arrayOf(PropTypes.string),
+      targetUrl: PropTypes.string,
+      imgs: PropTypes.shape({
+        src: PropTypes.string,
+        alt: PropTypes.string
+      })
+    })
+  })
+};
