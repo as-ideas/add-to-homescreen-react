@@ -7,7 +7,7 @@ Configuration is defined in the ``addToHomeScreenConfiguration.json`` file. The 
 
 | **Configuration parameter** | **Description** | **Default Setting** |
 |---|---|---|
-| appId | The id of the application. It is used as key for the local storage entry. | ``ServicePortal`` |
+| appId | The id of the application. It is used as key for the local storage entry. We recommend to define it specifically for your application. | ``add-to-homescreen-react`` |
 | debug | Indicates the platform that should be simulated for debugging purposes. Overrides browser checks. Possible values: `native`, `firefox`, `ipad`, `iphone`, `opera`, `samsung`, `edge`, `chromium`, `false` | ``false`` |
 | activateLogging | Activate logging to JS console for the module. Defaults to `true` when `debug` is not `false`. | false | 
 | isModal | Prevent further actions until the message is closed. | `false` |
@@ -28,7 +28,6 @@ Configuration is defined in the ``addToHomeScreenConfiguration.json`` file. The 
 | onCancel | A function being executed when 'Cancel' button has been clicked. | `null` |
 | customCriteria | A hook to provide either a custom method or a simple `true` (= always) or `false` (= never) value to control when it prompts. | `null` (the same as `true`)|
 | customPromptContent | Allows customization of the custom prompt dialog's content. See section [Custom Prompt Content](#custom-prompt-content) | `{}` |
-| customPromptElements | See section [Custom Prompt Elements](#custom-prompt-elements). | | 
 | customPromptPlatformDependencies | See section [Browser specific prompt dialog configuration](#browser-specific-prompt-dialog-configuration). | |
 
 ## Custom Prompt Content
@@ -37,24 +36,10 @@ The `customPromptContent` configuration parameter allows to globally define (for
 
 | **Configuration parameter** | **Description** | **Default Setting** |
 |---|---|---|
-| title | The title of the dialog. | `Install Service Portal?` |
-| src | The URL for the logo shown in the dialog. | `./images/defaultLogo.png` |
+| title | The title of the dialog. | `Install application?` |
+| src | The URL for the logo shown in the dialog. If it is `null` no logo is shown in the dialog. | `null` |
 | cancelMsg | The text of the dialog's cancel button. | `Not Now` |
 | installMsg | The text of the dialog's install button. | `Install` |
-
-## Custom Prompt Elements
-
-The `customPromptElements` configuration parameter defines CSS selectors for the custom prompt dialog's HTML elements. It contains the following customizable parameters:
-
-| **Configuration parameter** | **Description** | **Default Setting** |
-|---|---|---|
-| title | The CSS selector for the title element of the dialog. | `.ath-banner-title` |
-| body | The CSS selector for the body of the dialog. | `.ath-banner` |
-| logo | The CSS selector for the logo image within the dialog. | `.ath-prompt-logo` |
-| cancel | The CSS selector for the dialog's cancel button. | `.btn-cancel` |
-| install | The CSS selector for the dialog's install button. | `.btn-install` |
-    
-These CSS must correspond to the HTML code of the add-to-home-screen component.
 
 ## Browser specific prompt dialog configuration 
 
@@ -79,7 +64,7 @@ The configuration entries for each platform contain the customizable parameters:
 |---|---|
 | targetUrl | The URL to a page with full instructions. Can be undefined. If it is defined the current page is replace by the page this URL points to. |
 | showClasses | CSS classes to be added to the HTML element specified by the `athWrapper` configuration key (see section [Configuration for the Add-to-home-screen module](#configuration-for-the-add-to-home-screen-module)) |
-| imgs | An array of image definitions. These images represent the installation guide for the user and are shown as soon as the user clicks the install button of the custom prompt dialog. |
+| imgs | REQUIRED An array of image definitions. These images represent the installation guide for the user and are shown as soon as the user clicks the install button of the custom prompt dialog. |
 
 An image definition consists of the following configuration parameters: 
 

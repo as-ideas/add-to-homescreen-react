@@ -616,7 +616,7 @@ export default function AddToHomeScreen(props) {
 }
 
 AddToHomeScreen.propTypes = {
-  appId: PropTypes.string.isRequired,
+  appId: PropTypes.string,
   debug: PropTypes.string,
   activateLogging: PropTypes.bool,
   isModal: PropTypes.bool,
@@ -642,13 +642,6 @@ AddToHomeScreen.propTypes = {
     cancelMsg: PropTypes.string,
     installMsg: PropTypes.string
   }),
-  customPromptElements: PropTypes.shape({
-    title: PropTypes.string,
-    body: PropTypes.string,
-    logo: PropTypes.string,
-    cancel: PropTypes.string,
-    install: PropTypes.string
-  }),
   customPromptPlatformDependencies: PropTypes.shape({
     native: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
@@ -664,7 +657,7 @@ AddToHomeScreen.propTypes = {
       imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      }))
+      })).isRequired
     }),
     edge: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
@@ -672,7 +665,7 @@ AddToHomeScreen.propTypes = {
       imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      }))
+      })).isRequired
     }),
     iphone: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
@@ -680,7 +673,7 @@ AddToHomeScreen.propTypes = {
       imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      }))
+      })).isRequired
     }),
     ipad: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
@@ -688,7 +681,7 @@ AddToHomeScreen.propTypes = {
       imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      }))
+      })).isRequired
     }),
     firefox: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
@@ -696,7 +689,7 @@ AddToHomeScreen.propTypes = {
       imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      }))
+      })).isRequired
     }),
     samsung: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
@@ -704,7 +697,7 @@ AddToHomeScreen.propTypes = {
       imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      }))
+      })).isRequired
     }),
     opera: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
@@ -712,7 +705,7 @@ AddToHomeScreen.propTypes = {
       imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      }))
+      })).isRequired
     })
   })
 };
