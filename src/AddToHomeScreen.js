@@ -12,7 +12,7 @@ export default function AddToHomeScreen({options}) {
         installMsg: 'Install'
     };
 
-    console.log(`DEFAULT_PROMPT: ${DEFAULT_PROMPT}`);
+    console.log(`DEFAULT_PROMPT: ${JSON.stringify(DEFAULT_PROMPT)}`);
 
     const DEFAULT_SESSION = {
         lastDisplayTime: 0, // last time we displayed the message
