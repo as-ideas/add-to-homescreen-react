@@ -22,6 +22,7 @@ export default function AddToHomeScreen(props) {
   };
 
   let configuration = buildConfiguration();
+  doLog(`final configuration: ${ JSON.stringify(configuration) }`);
 
   let session = {};
   let platform = {};
@@ -88,8 +89,6 @@ export default function AddToHomeScreen(props) {
         options.customPromptPlatformDependencies[key] = Object.assign({}, DEFAULT_CONFIGURATION.customPromptPlatformDependencies[key], props.customPromptPlatformDependencies[key]);
       }
     }
-
-    doLog(`final configuration: ${ JSON.stringify(options) }`);
     return options;
   }
 
