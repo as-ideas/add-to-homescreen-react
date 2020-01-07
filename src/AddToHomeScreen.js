@@ -9,7 +9,7 @@ export default function AddToHomeScreen({options}) {
 
     const DEFAULT_PROMPT = {
         title: 'Install Service Portal?',
-        src: defaultLogo.default,
+        src: defaultLogo,
         cancelMsg: 'Not Now',
         installMsg: 'Install'
     };
