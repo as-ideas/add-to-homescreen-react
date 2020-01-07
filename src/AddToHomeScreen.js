@@ -55,7 +55,7 @@ export default function AddToHomeScreen(props) {
 
     checkPlatform();
 
-    let sessionString = window.localStorage.getItem(configuration.appID);
+    let sessionString = window.localStorage.getItem(configuration.appId);
     session = sessionString ? JSON.parse(sessionString) : DEFAULT_SESSION;
     if (session && session.added) {
       // there is nothing to do if app was already added to home screen
@@ -220,7 +220,7 @@ export default function AddToHomeScreen(props) {
   }
 
   function updateSession() {
-    window.localStorage.setItem(configuration.appID, JSON.stringify(session));
+    window.localStorage.setItem(configuration.appId, JSON.stringify(session));
   }
 
   function checkPlatform() {

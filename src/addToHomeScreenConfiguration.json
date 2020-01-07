@@ -1,5 +1,5 @@
 {
-  "appID": "ServicePortal",
+  "appId": "ServicePortal",
   "debug": false,
   "logging": false,
   "modal": false,

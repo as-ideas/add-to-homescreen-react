@@ -7,7 +7,7 @@ Configuration is defined in the ``addToHomeScreenConfiguration.json`` file. The 
 
 | **Configuration parameter** | **Description** | **Default Setting** |
 |---|---|---|
-| appID | The id of the application. It is used as key for the local storage entry. | ``ServicePortal`` |
+| appId | The id of the application. It is used as key for the local storage entry. | ``ServicePortal`` |
 | debug | Indicates the platform that should be simulated for debugging purposes. Overrides browser checks. Possible values: `native`, `firefox`, `ipad`, `iphone`, `opera`, `samsung`, `edge`, `chromium`, `false` | ``false`` |
 | activateLogging | Activate logging to JS console for the module. Defaults to `true` when `debug` is not `false`. | false | 
 | isModal | Prevent further actions until the message is closed. | `false` |
