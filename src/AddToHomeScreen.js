@@ -328,6 +328,8 @@ export default function AddToHomeScreen({ options }) {
                     if (promptDialogLogo && promptTarget.src) {
                         promptDialogLogo.src = promptTarget.src;
                         promptDialogLogo.alt = promptTarget.title || 'Install application';
+                    } else {
+                        athWrapper.removeChild(promptDialogLogo);
                     }
 
                     if (promptDialogInstallButton) {
