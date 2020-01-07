@@ -657,7 +657,7 @@ AddToHomeScreen.propTypes = {
       imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      })).isRequired
+      }))
     }),
     edge: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
@@ -665,7 +665,7 @@ AddToHomeScreen.propTypes = {
       imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      })).isRequired
+      }))
     }),
     iphone: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
@@ -673,7 +673,7 @@ AddToHomeScreen.propTypes = {
       imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      })).isRequired
+      }))
     }),
     ipad: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
@@ -681,7 +681,7 @@ AddToHomeScreen.propTypes = {
       imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      })).isRequired
+      }))
     }),
     firefox: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
@@ -689,7 +689,7 @@ AddToHomeScreen.propTypes = {
       imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      })).isRequired
+      }))
     }),
     samsung: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
@@ -697,7 +697,7 @@ AddToHomeScreen.propTypes = {
       imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      })).isRequired
+      }))
     }),
     opera: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
@@ -705,7 +705,7 @@ AddToHomeScreen.propTypes = {
       imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      })).isRequired
+      }))
     })
   })
 };

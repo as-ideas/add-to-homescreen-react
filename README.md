@@ -22,15 +22,11 @@ import AddToHomeScreen from 'add-to-homescreen-react';
 Then add the component to your app:
 
 ```
-<AddToHomeScreen
-    appId='MyAppName'
-    customPromptPlatformDependencies={ customPromptPlatformDependencies }
-/>
+<AddToHomeScreen />
 ```
 
-The `customPromptPlatformDependencies` must define the user guidance images for the platforms that don't support native add-to-home-screen dialog. See section
-[Browser specific prompt dialog configuration](#browser-specific-prompt-dialog-configuration) for details. See section
-[Configuration for the Add-to-home-screen module](#configuration-for-the-add-to-home-screen-module) for a description of all available configuration parameters.
+This is the simplest way to use this component. There is a wide range of configuration options available you can use to customize the behaviour and design of the component.
+See section [Configuration for the Add-to-home-screen module](#configuration-for-the-add-to-home-screen-module) for a description of all available configuration parameters.
 
 ## Configuration for the Add-to-home-screen module
 
@@ -38,7 +34,7 @@ Configuration is defined in the ``addToHomeScreenConfiguration.json`` file. The 
 
 | **Configuration parameter** | **Description** | **Default Setting** |
 |---|---|---|
-| appId | The id of the application. It is used as key for the local storage entry. We recommend to define it specifically for your application. | ``add-to-homescreen-react`` |
+| appId | The id of the application. It is used as key for the local storage entry. It is recommended to define it specifically for your application. | ``add-to-homescreen-react`` |
 | debug | Indicates the platform that should be simulated for debugging purposes. Overrides browser checks. Possible values: `native`, `firefox`, `ipad`, `iphone`, `opera`, `samsung`, `edge`, `chromium`, `false` | ``false`` |
 | activateLogging | Activate logging to JS console for the module. Defaults to `true` when `debug` is not `false`. | false | 
 | isModal | Prevent further actions until the message is closed. | `false` |
