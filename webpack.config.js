@@ -1,6 +1,5 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: './src/AddToHomeScreen.js',
@@ -35,17 +34,10 @@ module.exports = {
                 include: path.resolve(__dirname, 'src'),
                 loader: "url-loader",
                 options: {
-                    limit: Infinity
+                    limit: false
                 }
             }
 
         ]
-    },
-    plugins: [
-        new CopyWebpackPlugin([{
-            context: 'src/images',
-            from: '**/*',
-            to: path.resolve(__dirname, 'build/images')
-        }])
-    ]
+    }
 };

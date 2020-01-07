@@ -5,9 +5,11 @@ import AddToHomeScreenConfiguration from './addToHomeScreenConfiguration.json';
 
 export default function AddToHomeScreen({options}) {
 
+    const DEFAULT_LOGO = require('./defaultLogo.png');
+
     const DEFAULT_PROMPT = {
         title: 'Install Service Portal?',
-        src: './images/defaultLogo.png',
+        src: DEFAULT_LOGO,
         cancelMsg: 'Not Now',
         installMsg: 'Install'
     };
@@ -122,7 +124,7 @@ export default function AddToHomeScreen({options}) {
                         for (let index = 0; index < promptTarget.imgs.length; index++) {
                             let img = new Image();
 
-                            img.src = require(promptTarget.imgs[index].src);
+                            img.src = promptTarget.imgs[index].src;
                             img.alt = promptTarget.imgs[index].alt;
 
                             if (promptTarget.imgs[index].classes) {
@@ -328,7 +330,7 @@ export default function AddToHomeScreen({options}) {
 
                     if (promptDialogLogo && promptTarget.src) {
                         promptDialogLogo.src = promptTarget.src;
-                        promptDialogLogo.alt = promptTarget.title || 'Install PWA';
+                        promptDialogLogo.alt = promptTarget.title || 'Install application';
                     }
 
                     if (promptDialogInstallButton) {
@@ -580,7 +582,7 @@ export default function AddToHomeScreen({options}) {
         <div className="ath-container banner-bottom-center">
             <div className="ath-banner">
                 <div className="ath-banner-cell">
-                    <img alt="Application Logo" className="ath-prompt-logo" src={require('./images/defaultLogo.png')}/>
+                    <img alt="Application Logo" className="ath-prompt-logo" src={DEFAULT_LOGO}/>
                 </div>
                 <div className="ath-banner-title"/>
                 <div className="ath-banner-cell">
