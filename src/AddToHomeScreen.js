@@ -3,11 +3,13 @@ import React, { useEffect } from 'react';
 import './addToHomeScreen.scss';
 import AddToHomeScreenConfiguration from './addToHomeScreenConfiguration.json';
 
+import defaultLogo from './defaultLogo.png';
+
 export default function AddToHomeScreen({options}) {
 
     const DEFAULT_PROMPT = {
         title: 'Install Service Portal?',
-        src: require('./defaultLogo.png'),
+        src: defaultLogo.default,
         cancelMsg: 'Not Now',
         installMsg: 'Install'
     };
