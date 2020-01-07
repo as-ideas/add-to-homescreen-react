@@ -654,66 +654,66 @@ AddToHomeScreen.propTypes = {
     native: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
       targetUrl: PropTypes.string,
-      imgs: PropTypes.shape({
+      imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      })
+      }))
     }),
     chromium: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
       targetUrl: PropTypes.string,
-      imgs: PropTypes.shape({
+      imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      })
+      }))
     }),
     edge: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
       targetUrl: PropTypes.string,
-      imgs: PropTypes.shape({
+      imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      })
+      }))
     }),
     iphone: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
       targetUrl: PropTypes.string,
-      imgs: PropTypes.shape({
+      imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      })
+      }))
     }),
     ipad: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
       targetUrl: PropTypes.string,
-      imgs: PropTypes.shape({
+      imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      })
+      }))
     }),
     firefox: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
       targetUrl: PropTypes.string,
-      imgs: PropTypes.shape({
+      imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      })
+      }))
     }),
     samsung: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
       targetUrl: PropTypes.string,
-      imgs: PropTypes.shape({
+      imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      })
+      }))
     }),
     opera: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
       targetUrl: PropTypes.string,
-      imgs: PropTypes.shape({
+      imgs: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      })
+      }))
     })
   })
 };
