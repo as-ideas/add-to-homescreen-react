@@ -1,5 +1,33 @@
 # add-to-homescreen-react
+[![LGPLv3 license](https://img.shields.io/badge/License-LGPLv3-blue.svg)](http://www.gnu.de/documents/lgpl-3.0.de.html)
+
 A React component providing add-to-home-screen functionality for different platforms and browsers.
+
+## What is it?
+
+`add-to-homescreen-react` allows you to easily inform your user that your React application is installable on the home screen of your mobile phone or on your desktop. It provides a
+highly configurable React component named `AddToHomeScreen` that supports different browsers and platforms. Where possible, browser's native add-to-homescreen functionality is used.
+Where not, a guidance for the user can be shown.
+
+This library is based on the [`add-to-homescreen`](https://github.com/docluv/add-to-homescreen) project of [Chris Love](https://github.com/docluv).
+
+## Usage
+
+First import the component:
+
+```
+import AddToHomeScreen from 'add-to-homescreen-react';
+```
+
+Then add the component to your app:
+
+```
+<AddToHomeScreen appId='ServicePortal' customPromptPlatformDependencies={ customPromptPlatformDependencies }/>
+```
+
+The `customPromptPlatformDependencies` must define the user guidance images for the platforms that don't support native add-to-home-screen dialog. See section
+[Browser specific prompt dialog configuration](#browser-specific-prompt-dialog-configuration) for details. See section
+[Configuration for the Add-to-home-screen module](#configuration-for-the-add-to-home-screen-module) for a description of all available configuration parameters.
 
 ## Configuration for the Add-to-home-screen module
 
@@ -43,7 +71,7 @@ The `customPromptContent` configuration parameter allows to globally define (for
 
 ## Browser specific prompt dialog configuration 
 
-Some platform support a native add-to-home-screen dialog, others not. For the second ones the add-to-home-screen custom dialog shows a guide (one or more images) that illustrates
+Some platforms support a native add-to-home-screen dialog, others not. For the second ones the add-to-home-screen custom dialog shows a guide (one or more images) that illustrates
 how the app can be added to the home screen. The `customPromptPlatformDependencies` parameter allows to customize this guide. It contains a configuration entry for each of the supported
 platforms. The following platforms are supported:
 
@@ -87,3 +115,15 @@ Here is an example for a complete platform entry:
   ]
 }
 ```
+
+## Licence
+
+Copyright (c) 2014 Matteo Spinelli, http://cubiq.org/
+Copyright (c) 2019 Chris Love, http://love2dev.com/
+Copyright (c) 2019 Axel Springer Ideas Engineering GmbH, https://ideas-engineering.io/
+
+This software is subject to the provisions of [LPGLv3](http://www.gnu.de/documents/lgpl-3.0.de.html).
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
+AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
