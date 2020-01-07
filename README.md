@@ -137,7 +137,9 @@ You can add own CSS classes to the prompt dialog wrapper (`ath-container`) using
 ## Licence
 
 Copyright (c) 2014 Matteo Spinelli, http://cubiq.org/
+
 Copyright (c) 2019 Chris Love, http://love2dev.com/
+
 Copyright (c) 2019 Axel Springer Ideas Engineering GmbH, https://ideas-engineering.io/
 
 This software is subject to the provisions of [LPGLv3](http://www.gnu.de/documents/lgpl-3.0.de.html).
