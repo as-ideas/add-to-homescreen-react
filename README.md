@@ -23,7 +23,7 @@ Then add the component to your app:
 
 ```
 <AddToHomeScreen
-    appId='ServicePortal'
+    appId='MyAppName'
     customPromptPlatformDependencies={ customPromptPlatformDependencies }
 />
 ```
