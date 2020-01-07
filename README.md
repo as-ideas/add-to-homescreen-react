@@ -30,12 +30,12 @@ See section [Configuration for the Add-to-home-screen module](#configuration-for
 
 ## Configuration for the Add-to-home-screen module
 
-Configuration is defined in the ``addToHomeScreenConfiguration.json`` file. The following parameters exist and can be customized:
+Configuration is defined in the `addToHomeScreenConfiguration.json` file. The following parameters exist and can be customized:
 
 | **Configuration parameter** | **Description** | **Default Setting** |
 |---|---|---|
-| appId | The id of the application. It is used as key for the local storage entry. It is recommended to define it specifically for your application. | ``add-to-homescreen-react`` |
-| debug | Indicates the platform that should be simulated for debugging purposes. Overrides browser checks. Possible values: `native`, `firefox`, `ipad`, `iphone`, `opera`, `samsung`, `edge`, `chromium`, `false` | ``false`` |
+| appId | The id of the application. It is used as key for the local storage entry. It is recommended to define it specifically for your application. | `add-to-homescreen-react` |
+| debug | Indicates the platform that should be simulated for debugging purposes. Overrides browser checks. See section [Browser specific prompt dialog configuration](#browser-specific-prompt-dialog-configuration) for the list of supported platform keys. | `false` |
 | activateLogging | Activate logging to JS console for the module. Defaults to `true` when `debug` is not `false`. | false | 
 | isModal | Prevent further actions until the message is closed. | `false` |
 | isMandatory | User can't proceed without adding the app to the home screen. | `false` |
