@@ -77,20 +77,20 @@ export default function AddToHomeScreen(props) {
   }
 
   function buildConfiguration() {
-    let configuration = Object.assign({}, DEFAULT_CONFIGURATION, props);
+    let options = Object.assign({}, DEFAULT_CONFIGURATION, props);
 
-    configuration.customPromptContent = Object.assign({}, DEFAULT_CONFIGURATION.customPromptContent, props.customPromptContent);
-    configuration.customPromptElements = Object.assign({}, DEFAULT_CONFIGURATION.customPromptElements, props.customPromptElements);
-    configuration.customPromptPlatformDependencies = Object.assign({}, DEFAULT_CONFIGURATION.customPromptPlatformDependencies, props.customPromptPlatformDependencies);
+    options.customPromptContent = Object.assign({}, DEFAULT_CONFIGURATION.customPromptContent, props.customPromptContent);
+    options.customPromptElements = Object.assign({}, DEFAULT_CONFIGURATION.customPromptElements, props.customPromptElements);
+    options.customPromptPlatformDependencies = Object.assign({}, DEFAULT_CONFIGURATION.customPromptPlatformDependencies, props.customPromptPlatformDependencies);
 
     for (let key in DEFAULT_CONFIGURATION.customPromptPlatformDependencies) {
       if (DEFAULT_CONFIGURATION.customPromptPlatformDependencies.hasOwnProperty(key)) {
-        configuration.customPromptPlatformDependencies[key] = Object.assign({}, DEFAULT_CONFIGURATION.customPromptPlatformDependencies[key], props.customPromptPlatformDependencies[key]);
+        options.customPromptPlatformDependencies[key] = Object.assign({}, DEFAULT_CONFIGURATION.customPromptPlatformDependencies[key], props.customPromptPlatformDependencies[key]);
       }
     }
 
-    doLog(`final configuration: ${ JSON.stringify(configuration) }`);
-    return configuration;
+    doLog(`final configuration: ${ JSON.stringify(options) }`);
+    return options;
   }
 
   function buildGuidanceURLs(prompts) {
