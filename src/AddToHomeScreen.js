@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import './addToHomeScreen.scss';
 import AddToHomeScreenConfiguration from './addToHomeScreenConfiguration.json';
 
-export default function AddToHomeScreen({options}) {
+export default function AddToHomeScreen({ options }) {
 
     const DEFAULT_PROMPT = {
         title: 'Install Service Portal?',
@@ -300,7 +300,7 @@ export default function AddToHomeScreen({options}) {
                 let target = getPlatform();
                 let athWrapper = document.querySelector(configuration.athWrapper);
 
-                doLog(`show generic prompt for platform ${target}`);
+                doLog(`show generic prompt for platform ${ target }`);
                 if (athWrapper && !session.optedOut) {
                     athWrapper.classList.remove(configuration.hideClass);
 
@@ -579,7 +579,7 @@ export default function AddToHomeScreen({options}) {
         <div className="ath-container banner-bottom-center">
             <div className="ath-banner">
                 <div className="ath-banner-cell">
-                    <img alt="Application Logo" className="ath-prompt-logo" src={require('./defaultLogo.png')}/>
+                    <img alt="Application Logo" className="ath-prompt-logo"/>
                 </div>
                 <div className="ath-banner-title"/>
                 <div className="ath-banner-cell">
