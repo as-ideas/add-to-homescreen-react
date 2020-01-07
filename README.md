@@ -22,7 +22,10 @@ import AddToHomeScreen from 'add-to-homescreen-react';
 Then add the component to your app:
 
 ```
-<AddToHomeScreen appId='ServicePortal' customPromptPlatformDependencies={ customPromptPlatformDependencies }/>
+<AddToHomeScreen
+    appId='ServicePortal'
+    customPromptPlatformDependencies={ customPromptPlatformDependencies }
+/>
 ```
 
 The `customPromptPlatformDependencies` must define the user guidance images for the platforms that don't support native add-to-home-screen dialog. See section
