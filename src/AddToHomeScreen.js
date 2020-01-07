@@ -635,6 +635,7 @@ AddToHomeScreen.propTypes = {
   onAdd: PropTypes.func,
   onInstall: PropTypes.func,
   onCancel: PropTypes.func,
+  showClasses: PropTypes.arrayOf(PropTypes.string),
   customCriteria: PropTypes.func,
   customPromptContent: PropTypes.shape({
     title: PropTypes.string,

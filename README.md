@@ -53,6 +53,7 @@ Configuration is defined in the ``addToHomeScreenConfiguration.json`` file. The 
 | onAdd | A function being executed when the application is launched the first time from the home screen (guesstimate). | `null` | 
 | onInstall | A function being executed when 'Install' button has been clicked. | `null` |
 | onCancel | A function being executed when 'Cancel' button has been clicked. | `null` |
+| showClasses | CSS classes to be added for all supported browsers and platforms to the HTML element specified by the `ath-container` CSS class (see section [Customizing add-to-homescreen prompt](#customizing-add-to-homescreen-prompt) for details) | `['animated', 'd-flex']` |
 | customCriteria | A hook to provide either a custom method or a simple `true` (= always) or `false` (= never) value to control when it prompts. | `null` (the same as `true`)|
 | customPromptContent | Allows customization of the custom prompt dialog's content. See section [Custom Prompt Content](#custom-prompt-content) | `{}` |
 | customPromptPlatformDependencies | See section [Browser specific prompt dialog configuration](#browser-specific-prompt-dialog-configuration). | |
@@ -85,12 +86,12 @@ platforms. The following platforms are supported:
 | Samsung Phones | `samsung` |
 | Opera Browser | `opera` |
 
-The configuration entries for each platform contain the customizable parameters:
+The configuration entries for each platform contain the following customizable parameters:
 
 | **Configuration parameter** | **Description** |
 |---|---|
 | targetUrl | The URL to a page with full instructions. Can be undefined. If it is defined the current page is replace by the page this URL points to. |
-| showClasses | CSS classes to be added to the HTML element specified by the `athWrapper` configuration key (see section [Configuration for the Add-to-home-screen module](#configuration-for-the-add-to-home-screen-module)) |
+| showClasses | CSS classes to be added to the HTML element specified by the `ath-container` CSS class (see section [Customizing add-to-homescreen prompt](#customizing-add-to-homescreen-prompt) for details). |
 | imgs | REQUIRED An array of image definitions. These images represent the installation guide for the user and are shown as soon as the user clicks the install button of the custom prompt dialog. |
 
 An image definition consists of the following configuration parameters: 
@@ -114,6 +115,24 @@ Here is an example for a complete platform entry:
   ]
 }
 ```
+
+## Customizing add-to-homescreen prompt
+
+The add-to-homescreen prompt consists of different HTML elements. These elements can be customized by CSS using the following CSS classes:
+
+| **CSS class** | **Description** |
+|---|---|
+| ath-container | The `<div>` element wrapping the whole prompt dialog. |
+| ath-banner | The `<div>` element that defines the prompt dialog. If user guidance images are provided (by the configuration) the content of this element is replaced by them as soon as the user clicks the 'Install' button. |
+| ath-banner-cell | The logo and the buttons are wrapped by `<div>` elements with this CSS class. |
+| ath-prompt-logo | The image tag for the logo (if there is one provided by the configuration) has this CSS class. |
+| ath-banner-title | The `<div>` element containing the banner text. |
+| btn-cancel | The `<button>` element for the 'Cancel' button has this CSS class. |
+| btn-install | The `<button>` element for the 'Install' button has this CSS class.|
+
+You can add own CSS classes to the prompt dialog wrapper (`ath-container`) using the `showClasses` configuration key. This can be done globally (see section
+[Configuration for the Add-to-home-screen module](#configuration-for-the-add-to-home-screen-module)) or per supported browser or platform (see section
+[Browser specific prompt dialog configuration](#browser-specific-prompt-dialog-configuration)).
 
 ## Licence
 
