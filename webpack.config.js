@@ -28,16 +28,7 @@ module.exports = {
                     'css-loader',
                     'sass-loader'
                 ]
-            },
-            {
-                test: /\.(jpg|png|svg)$/,
-                include: path.resolve(__dirname, 'src'),
-                loader: "url-loader",
-                options: {
-                    limit: false
-                }
             }
-
         ]
     }
 };

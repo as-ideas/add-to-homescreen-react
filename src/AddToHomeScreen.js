@@ -21,6 +21,9 @@ export default function AddToHomeScreen({ options }) {
   };
 
   let configuration = Object.assign({}, AddToHomeScreenConfiguration, options);
+
+  doLog(`final configuration: ${ JSON.stringify(configuration) }`);
+
   let session = {};
   let platform = {};
   let guidanceTargetUrls = [];
