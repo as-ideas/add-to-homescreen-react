@@ -3,18 +3,13 @@ import React, { useEffect } from 'react';
 import './addToHomeScreen.scss';
 import AddToHomeScreenConfiguration from './addToHomeScreenConfiguration.json';
 
-import defaultLogo from './defaultLogo.png';
-
 export default function AddToHomeScreen({options}) {
 
     const DEFAULT_PROMPT = {
         title: 'Install Service Portal?',
-        src: defaultLogo,
         cancelMsg: 'Not Now',
         installMsg: 'Install'
     };
-
-    console.log(`DEFAULT_PROMPT: ${JSON.stringify(DEFAULT_PROMPT)}`);
 
     const DEFAULT_SESSION = {
         lastDisplayTime: 0, // last time we displayed the message
@@ -584,7 +579,7 @@ export default function AddToHomeScreen({options}) {
         <div className="ath-container banner-bottom-center">
             <div className="ath-banner">
                 <div className="ath-banner-cell">
-                    <img alt="Application Logo" className="ath-prompt-logo"/>
+                    <img alt="Application Logo" className="ath-prompt-logo" src={require('./defaultLogo.png')}/>
                 </div>
                 <div className="ath-banner-title"/>
                 <div className="ath-banner-cell">
