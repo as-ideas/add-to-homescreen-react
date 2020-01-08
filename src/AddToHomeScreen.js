@@ -130,11 +130,12 @@ export default function AddToHomeScreen(props) {
         if (promptTarget.targetUrl) {
           location.replace(promptTarget.targetUrl);
         } else {
-          let promptDialogBody = athWrapper.querySelector(configuration.customPromptElements.body);
-
           if (promptTarget.imgs && promptTarget.imgs.length > 0) {
-            promptDialogBody.innerHTML = '';
-            promptDialogBody.classList.add(configuration.athGuidance);
+            let promptDialogBannerBody = athWrapper.querySelector(configuration.customPromptElements.banner);
+            let promptDialogGuidanceBody = athWrapper.querySelector(configuration.customPromptElements.guidance);
+
+            promptDialogBannerBody.classList.add(configuration.hideClass);
+            promptDialogGuidanceBody.classList.add(configuration.showClass);
 
             for (let index = 0; index < promptTarget.imgs.length; index++) {
               let img = new Image();
@@ -147,7 +148,7 @@ export default function AddToHomeScreen(props) {
               }
               img.classList.add(configuration.showClass);
 
-              promptDialogBody.appendChild(img);
+              promptDialogGuidanceBody.appendChild(img);
             }
           }
           if (!isVisible(athWrapper)) {
@@ -609,6 +610,11 @@ export default function AddToHomeScreen(props) {
           </div>
           <div className="ath-banner-cell">
             <button className="btn btn-install btn-success button button--primary">Install</button>
+          </div>
+        </div>
+        <div className="ath-guidance">
+          <div className="ath-banner-cell">
+            <button className="btn btn-cancel btn-link button">Not Now</button>
           </div>
         </div>
       </div>

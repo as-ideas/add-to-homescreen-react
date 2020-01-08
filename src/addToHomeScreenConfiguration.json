@@ -21,7 +21,6 @@
   "customCriteria": null,
   "customPromptContent": {},
   "athWrapper": ".ath-container",
-  "athGuidance": "ath-guidance",
   "showClasses": [
     "animated",
     "d-flex"
@@ -30,7 +29,8 @@
   "hideClass": "d-none",
   "customPromptElements": {
     "title": ".ath-banner-title",
-    "body": ".ath-banner",
+    "banner": ".ath-banner",
+    "guidance": ".ath-guidance",
     "logo": ".ath-prompt-logo",
     "cancel": ".btn-cancel",
     "install": ".btn-install"
