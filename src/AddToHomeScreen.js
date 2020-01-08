@@ -568,7 +568,10 @@ export default function AddToHomeScreen(props) {
   function closePrompt() {
     let athWrapper = document.querySelector(`.${ configuration.customPromptElements.container }`);
     if (athWrapper) {
-      athWrapper.classList.remove(...configuration.showClasses);
+      let target = getPlatform();
+      let promptTarget = configuration.customPromptPlatformDependencies[target];
+      promptTarget.showClasses = promptTarget.showClasses.concat(configuration.showClasses);
+      athWrapper.classList.remove(...promptTarget.showClasses);
     }
   }
 
@@ -586,14 +589,10 @@ export default function AddToHomeScreen(props) {
   }
 
   function autoHide() {
-    let target = getPlatform();
     let athWrapper = document.querySelector(`.${ configuration.customPromptElements.container }`);
 
+    closePrompt();
     if (athWrapper) {
-      let promptTarget = configuration.customPromptPlatformDependencies[target];
-      promptTarget.showClasses = promptTarget.showClasses.concat(configuration.showClasses);
-
-      athWrapper.classList.remove(...promptTarget.showClasses);
       athWrapper.classList.add(configuration.hideClass);
     }
   }
