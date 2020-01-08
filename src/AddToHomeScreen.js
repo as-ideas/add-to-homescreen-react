@@ -356,14 +356,14 @@ export default function AddToHomeScreen(props) {
           if (promptDialogInstallButton) {
             promptDialogInstallButton.addEventListener('click', handleInstall);
             promptDialogInstallButton.classList.remove(configuration.hideClass);
-            promptDialogInstallButton.innerText = promptTarget.installMsg ? promptTarget.installMsg :
+            promptDialogInstallButton.innerText = promptTarget.installMsg != null ? promptTarget.installMsg :
                 ((promptTarget.action && promptTarget.action.ok) ? promptTarget.action.ok : configuration.customPromptElements.action.ok);
           }
 
           if (promptDialogCancelButton) {
             promptDialogCancelButton.addEventListener('click', cancelPrompt);
             promptDialogCancelButton.classList.remove(configuration.hideClass);
-            promptDialogCancelButton.innerText = promptTarget.cancelMsg ? promptTarget.cancelMsg :
+            promptDialogCancelButton.innerText = promptTarget.cancelMsg != null ? promptTarget.cancelMsg :
                 ((promptTarget.action && promptTarget.action.cancel) ? promptTarget.action.cancel : configuration.customPromptElements.action.cancel);
           }
         }
