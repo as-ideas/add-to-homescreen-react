@@ -38,9 +38,9 @@
     "title": "ath-banner-title",
     "titleAddOns": "",
     "cancelButton": "btn-cancel",
-    "cancelButtonAddOns": "btn btn-link button",
+    "cancelButtonAddOns": "btn btn-link",
     "installButton": "btn-install",
-    "installButtonAddOns": "btn btn-success button button--primary",
+    "installButtonAddOns": "btn btn-success",
     "guidance": "ath-guidance",
     "guidanceAddOns": ""
   },

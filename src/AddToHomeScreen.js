@@ -604,11 +604,11 @@ export default function AddToHomeScreen(props) {
           <div className={ `${ configuration.customPromptElements.bannerCell } ${ configuration.customPromptElements.bannerCellAddOns }` }>
             <img alt="Application Logo" className={ `${ configuration.customPromptElements.logo } ${ configuration.customPromptElements.logoAddOns }` }/>
           </div>
-          <div className={ `${ configuration.customPromptElements.title } ${ configuration.customPromptElements.titleAddOns }` }/>
           <div className={ `${ configuration.customPromptElements.bannerCell } ${ configuration.customPromptElements.bannerCellAddOns }` }>
-            <button className={ `${ configuration.customPromptElements.cancelButton } ${ configuration.customPromptElements.cancelButtonAddOns }` }>Not Now</button>
+            <div className={ `${ configuration.customPromptElements.title } ${ configuration.customPromptElements.titleAddOns }` }/>
           </div>
           <div className={ `${ configuration.customPromptElements.bannerCell } ${ configuration.customPromptElements.bannerCellAddOns }` }>
+            <button className={ `${ configuration.customPromptElements.cancelButton } ${ configuration.customPromptElements.cancelButtonAddOns }` }>Not Now</button>
             <button className={ `${ configuration.customPromptElements.installButton } ${ configuration.customPromptElements.installButtonAddOns }` }>Install</button>
           </div>
         </div>
