@@ -20,7 +20,6 @@
   "onCancel": null,
   "customCriteria": null,
   "customPromptContent": {},
-  "athWrapper": ".ath-container",
   "showClasses": [
     "animated",
     "d-flex"
@@ -28,12 +27,22 @@
   "showClass": "d-flex",
   "hideClass": "d-none",
   "customPromptElements": {
-    "title": ".ath-banner-title",
-    "banner": ".ath-banner",
-    "guidance": ".ath-guidance",
-    "logo": ".ath-prompt-logo",
-    "cancel": ".btn-cancel",
-    "install": ".btn-install"
+    "container": "ath-container",
+    "containerAddOns": "banner-bottom-center",
+    "banner": "ath-banner",
+    "bannerAddOns": "",
+    "bannerCell": "ath-banner-cell",
+    "bannerCellAddOns": "",
+    "logo": "ath-prompt-logo",
+    "logoAddOns": "",
+    "title": "ath-banner-title",
+    "titleAddOns": "",
+    "cancelButton": "btn-cancel",
+    "cancelButtonAddOns": "btn btn-link button",
+    "installButton": "btn-install",
+    "installButtonAddOns": "btn btn-success button button--primary",
+    "guidance": "ath-guidance",
+    "guidanceAddOns": ""
   },
   "customPromptPlatformDependencies": {
     "native": {
