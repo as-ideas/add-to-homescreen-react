@@ -601,19 +601,21 @@ export default function AddToHomeScreen(props) {
   return (
       <div className={ `${ configuration.customPromptElements.container } ${ configuration.customPromptElements.containerAddOns }` }>
         <div className={ `${ configuration.customPromptElements.banner } ${ configuration.customPromptElements.bannerAddOns }` }>
-          <div className={ `${ configuration.customPromptElements.bannerCell } ${ configuration.customPromptElements.bannerCellAddOns }` }>
+          <div className={ `${ configuration.customPromptElements.logoCell } ${ configuration.customPromptElements.logoCellAddOns }` }>
             <img alt="Application Logo" className={ `${ configuration.customPromptElements.logo } ${ configuration.customPromptElements.logoAddOns }` }/>
           </div>
-          <div className={ `${ configuration.customPromptElements.bannerCell } ${ configuration.customPromptElements.bannerCellAddOns }` }>
+          <div className={ `${ configuration.customPromptElements.titleCell } ${ configuration.customPromptElements.titleCellAddOns }` }>
             <div className={ `${ configuration.customPromptElements.title } ${ configuration.customPromptElements.titleAddOns }` }/>
           </div>
-          <div className={ `${ configuration.customPromptElements.bannerCell } ${ configuration.customPromptElements.bannerCellAddOns }` }>
+          <div className={ `${ configuration.customPromptElements.cancelButtonCell } ${ configuration.customPromptElements.cancelButtonCellAddOns }` }>
             <button className={ `${ configuration.customPromptElements.cancelButton } ${ configuration.customPromptElements.cancelButtonAddOns }` }>Not Now</button>
+          </div>
+          <div className={ `${ configuration.customPromptElements.installButtonCell } ${ configuration.customPromptElements.installButtonCellAddOns }` }>
             <button className={ `${ configuration.customPromptElements.installButton } ${ configuration.customPromptElements.installButtonAddOns }` }>Install</button>
           </div>
         </div>
         <div className={ `${ configuration.customPromptElements.guidance } ${ configuration.customPromptElements.guidanceAddOns }` }>
-          <div className={ `${ configuration.customPromptElements.bannerCell } ${ configuration.customPromptElements.bannerCellAddOns }` }>
+          <div className={ `${ configuration.customPromptElements.cancelButtonCell } ${ configuration.customPromptElements.cancelButtonCellAddOns }` }>
             <button className={ `${ configuration.customPromptElements.cancelButton } ${ configuration.customPromptElements.cancelButtonAddOns }` }>Not Now</button>
           </div>
         </div>
