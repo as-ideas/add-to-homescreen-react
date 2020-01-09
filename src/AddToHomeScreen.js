@@ -24,7 +24,7 @@ export default function AddToHomeScreen(props) {
 
   let configuration = buildConfiguration();
 
-  doLog(`used final configuration: ${ JSON.stringify(configuration) }`);
+  doLog(`final configuration: ${ JSON.stringify(configuration) }`);
 
   let session = {};
   let platform = {};
