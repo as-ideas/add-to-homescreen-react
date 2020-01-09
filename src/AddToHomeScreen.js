@@ -703,7 +703,7 @@ AddToHomeScreen.propTypes = {
       action: PropTypes.shape({
         ok: PropTypes.string,
         cancel: PropTypes.string,
-        guidanceString: PropTypes.string
+        guidanceCancel: PropTypes.string
       })
     }),
     chromium: PropTypes.shape({
@@ -716,7 +716,7 @@ AddToHomeScreen.propTypes = {
       action: PropTypes.shape({
         ok: PropTypes.string,
         cancel: PropTypes.string,
-        guidanceString: PropTypes.string
+        guidanceCancel: PropTypes.string
       })
     }),
     edge: PropTypes.shape({
@@ -729,7 +729,7 @@ AddToHomeScreen.propTypes = {
       action: PropTypes.shape({
         ok: PropTypes.string,
         cancel: PropTypes.string,
-        guidanceString: PropTypes.string
+        guidanceCancel: PropTypes.string
       })
     }),
     iphone: PropTypes.shape({
@@ -742,7 +742,7 @@ AddToHomeScreen.propTypes = {
       action: PropTypes.shape({
         ok: PropTypes.string,
         cancel: PropTypes.string,
-        guidanceString: PropTypes.string
+        guidanceCancel: PropTypes.string
       })
     }),
     ipad: PropTypes.shape({
@@ -755,7 +755,7 @@ AddToHomeScreen.propTypes = {
       action: PropTypes.shape({
         ok: PropTypes.string,
         cancel: PropTypes.string,
-        guidanceString: PropTypes.string
+        guidanceCancel: PropTypes.string
       })
     }),
     firefox: PropTypes.shape({
@@ -768,7 +768,7 @@ AddToHomeScreen.propTypes = {
       action: PropTypes.shape({
         ok: PropTypes.string,
         cancel: PropTypes.string,
-        guidanceString: PropTypes.string
+        guidanceCancel: PropTypes.string
       })
     }),
     samsung: PropTypes.shape({
@@ -781,7 +781,7 @@ AddToHomeScreen.propTypes = {
       action: PropTypes.shape({
         ok: PropTypes.string,
         cancel: PropTypes.string,
-        guidanceString: PropTypes.string
+        guidanceCancel: PropTypes.string
       })
     }),
     opera: PropTypes.shape({
@@ -794,7 +794,7 @@ AddToHomeScreen.propTypes = {
       action: PropTypes.shape({
         ok: PropTypes.string,
         cancel: PropTypes.string,
-        guidanceString: PropTypes.string
+        guidanceCancel: PropTypes.string
       })
     })
   })

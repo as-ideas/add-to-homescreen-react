@@ -54,8 +54,11 @@ Configuration is defined in the `addToHomeScreenConfiguration.json` file. The fo
 | onInstall | A function being executed when 'Install' button has been clicked. | `null` |
 | onCancel | A function being executed when 'Cancel' button has been clicked. | `null` |
 | showClasses | CSS classes to be added for all supported browsers and platforms to the HTML element specified by the `ath-container` CSS class (see section [Customizing add-to-homescreen prompt](#customizing-add-to-homescreen-prompt) for details) | `['animated', 'd-flex']` |
+| showClass | CSS class that ensures that an element is shown. At least, it must define the `display` CSS property. | `d-flex` |
+| hideClass | CSS class that ensures that an element is hidden. At least, it must define the `display` CSS property and set it to `hide`. | `d-none` |
 | customCriteria | A hook to provide either a custom method or a simple `true` (= always) or `false` (= never) value to control when it prompts. | `null` (the same as `true`)|
-| customPromptContent | Allows customization of the custom prompt dialog's content. See section [Custom Prompt Content](#custom-prompt-content) | `{}` |
+| customPromptContent | Allows customization of the custom prompt dialog's content. See section [Custom Prompt Content](#custom-prompt-content). | `{}` |
+| customPromptElements | Allows definition of your own CSS class for all HTML elements of the custom prompt dialog. See section [Customizing add-to-homescreen prompt](#customizing-add-to-homescreen-prompt). | |
 | customPromptPlatformDependencies | See section [Browser specific prompt dialog configuration](#browser-specific-prompt-dialog-configuration). | |
 
 ## Custom Prompt Content
@@ -64,10 +67,13 @@ The `customPromptContent` configuration parameter allows to globally define (for
 
 | **Configuration parameter** | **Description** | **Default Setting** |
 |---|---|---|
-| title | The title of the dialog. | `Install application?` |
-| src | The URL for the logo shown in the dialog. If it is `null` no logo is shown in the dialog. | `null` |
-| cancelMsg | The text of the dialog's cancel button. | `Not Now` |
-| installMsg | The text of the dialog's install button. | `Install` |
+| title | The title of the prompt dialog. | `Install application?` |
+| src | The URL for the logo shown in the prompt dialog. If it is `null` no logo is shown in the dialog. | `null` |
+| cancelMsg | The text of the prompt dialog's cancel button. | `Not Now` |
+| installMsg | The text of the prompt dialog's install button. | `Install` |
+| guidanceCancelMsg | The text of the guidance dialog's cancel button. | `Close` |
+
+Please note that the messages can be defined per platform too. See section [Browser specific prompt dialog configuration](#browser-specific-prompt-dialog-configuration) to learn how.
 
 ## Browser specific prompt dialog configuration 
 
@@ -92,7 +98,8 @@ The configuration entries for each platform contain the following customizable p
 |---|---|
 | targetUrl | The URL to a page with full instructions. Can be undefined. If it is defined the current page is replace by the page this URL points to. |
 | showClasses | CSS classes to be added to the HTML element specified by the `ath-container` CSS class (see section [Customizing add-to-homescreen prompt](#customizing-add-to-homescreen-prompt) for details). |
-| imgs | REQUIRED An array of image definitions. These images represent the installation guide for the user and are shown as soon as the user clicks the install button of the custom prompt dialog. |
+| images | An array of image definitions. These images represent the installation guide for the user and are shown as soon as the user clicks the install button of the custom prompt dialog. |
+| action | A set of platform-specific button labels for the prompt and guidance dialog. |
 
 An image definition consists of the following configuration parameters: 
 
@@ -101,38 +108,108 @@ An image definition consists of the following configuration parameters:
 | src | The URL to the image. |
 | alt | The alternative text for the image. |
 
+The action message definition consists of the following configuration parameters:
+
+| **Configuration parameter** | **Description** |
+|---|---|
+| ok | The label for the prompt dialog's install button. |
+| cancel | The label for the prompt dialog's cancel button. |
+| guidanceCancel | The label for the guidance dialog's cancel button. |
+
 Here is an example for a complete platform entry:
 
 ```
-'iphone': {
+"iphone": {
   targetUrl: undefined,
-  showClasses: ['iphone-wrapper', 'animated', 'fadeIn', 'd-block'],
-  imgs: [
+  showClasses: ["iphone-wrapper", "animated", "fadeIn", "d-block"],
+  images: [
     {
-      src: '/images/addToHomeScreen/iphone.png',
-      alt: 'Tap the Share Icon and select Add to home screen entry'
+      src: "/images/addToHomeScreen/iphone.png",
+      alt: "Tap the Share Icon and select Add to home screen entry"
     }
-  ]
+  ],
+  action: {
+    ok: "Ok",
+    cancel: "Cancel",
+    guidanceCancel: "Dismiss"
+  }
 }
 ```
 
 ## Customizing add-to-homescreen prompt
 
-The add-to-homescreen prompt consists of different HTML elements. These elements can be customized by CSS using the following CSS classes:
+Per default, the `AddToHomeScreen` component brings a default styling based on a predefined set of CSS classes. You can change this styling by defining your own CSS rules for these
+classes. If you need more changes or want a complete redesign of the custom prompt dialog, it may be helpful to define a complete new CSS rule set based on your own CSS classes.
+The `customPromptElements` configuration parameter allows you to define CSS classes for all HTML elements of the add-to-homescreen custom prompt. It consists of a set of
+configuration parameters defining these classes. For a better understanding of these parameters, here is the HTML structure of the custom prompt dialog:
 
-| **CSS class** | **Description** |
+```
+<div class="{container}">
+    <div class="{banner}">
+      <div class="{logoCell}>
+        <img class="{logo}"/>
+      </div>
+      <div class="{titleCell}">
+        <div class="{title}"/>
+      </div>
+      <div class="{cancelButtonCell}">
+        <button class="{cancelButton}"/>
+      </div>
+      <div class="{installButtonCell}">
+        <button class="{installButton}"/>
+      </div>
+    </div>
+    <div class="{guidance}">
+      <div class="{guidanceImageCell}"/>
+      <div class="{cancelButtonCell}">
+        <button class="{guidanceCancelButton}"/>
+      </div>
+    </div>
+</div>
+```
+
+The values in brackets (`{}`) are the configuration keys you can use within the `customPromptElements` parameter to define or change the CSS classes. The following table
+describes these keys and their default value. 
+
+| **key** | **Description** | **Default CSS class** |
+|---|---|---|
+| container | The `<div>` element wrapping the whole prompt dialog. | `ath-container` |
+| banner | The `<div>` element that defines the prompt dialog. If it is shown the guidance dialog is hidden. | `ath-banner` |
+| logoCell | The cell element that wraps the logo of the prompt dialog. | `ath-logo-cell` |
+| logo | The image tag for the logo (if there is one provided by the configuration) has this CSS class. | `ath-prompt-logo` |
+| titleCell | The cell element that wraps the banner text of the prompt dialog. | `ath-title-cell` |
+| title | The `<div>` element containing the banner text. | `ath-banner-title` |
+| cancelButtonCell | The cell element that wraps the 'Cancel' button of the prompt and the guidance dialog. | `ath-cancel-cell` |
+| cancelButton | The `<button>` element for the 'Cancel' button of the prompt dialog has this CSS class. | `btn-cancel` |
+| installButtonCell | The cell element that wraps the 'Install' button of the prompt dialog. | `ath-install-cell` |
+| installButton | The `<button>` element for the 'Install' button of the prompt dialog has this CSS class. | `btn-install` |
+| guidance | The `<div>` element that defines the guidance dialog. If it is shown the prompt dialog is hidden. | `ath-guidance` |
+| guidanceImageCell | The cell element that wraps the guidance image(s). The images are added to this cell dynamically from configuration. | `ath-guidance-image-cell` |
+| guidanceCancelButton | The `<button>` element for the 'Cancel' button of the guidance dialog has this CSS class. | `btn-cancel` |
+
+Please note, that each of these keys accepts only one CSS class. This is necessary to enable the `AddToHomeScreen` component to use this CSS class as accessor to the corresponding
+HTML element. For your CSS ruleset you can add further CSS classes to the elements by the corresponding AddOns-keys that exist for each of the CSS class key in the table above.
+Here is an overview of these AddOns-Keys and their default values:
+ 
+| **key** | **Default value** |
 |---|---|
-| ath-container | The `<div>` element wrapping the whole prompt dialog. |
-| ath-banner | The `<div>` element that defines the prompt dialog. If user guidance images are provided (by the configuration) the content of this element is replaced by them as soon as the user clicks the 'Install' button. |
-| ath-banner-cell | The logo and the buttons are wrapped by `<div>` elements with this CSS class. |
-| ath-prompt-logo | The image tag for the logo (if there is one provided by the configuration) has this CSS class. |
-| ath-banner-title | The `<div>` element containing the banner text. |
-| btn-cancel | The `<button>` element for the 'Cancel' button has this CSS class. |
-| btn-install | The `<button>` element for the 'Install' button has this CSS class.|
+| containerAddOns | `banner-bottom-center` |
+| bannerAddOns | '' |
+| logoCellAddOns | `ath-banner-cell` |
+| logoAddOns | '' |
+| titleCellAddOns | `ath-banner-cell` |
+| titleAddOns | '' |
+| cancelButtonCellAddOns | `ath-banner-cell` |
+| cancelButtonAddOns | `btn btn-link` |
+| installButtonCellAddOns | `ath-banner-cell` |
+| installButtonAddOns | `btn btn-success` |
+| guidanceAddOns | '' |
+| guidanceImageCellAddOns | `ath-banner-cell` |
+| guidanceCancelButtonAddOns | `btn btn-link` |
 
-You can add own CSS classes to the prompt dialog wrapper (`ath-container`) using the `showClasses` configuration key. This can be done globally (see section
-[Configuration for the Add-to-home-screen module](#configuration-for-the-add-to-home-screen-module)) or per supported browser or platform (see section
-[Browser specific prompt dialog configuration](#browser-specific-prompt-dialog-configuration)).
+There is another configuration key named `showClasses` that can be used to define CSS classes that are added dynamically to the prompt dialog wrapper (the container) whenever it is
+shown. This can be done globally (see section [Configuration for the Add-to-home-screen module](#configuration-for-the-add-to-home-screen-module)) or per supported browser or
+platform (see section [Browser specific prompt dialog configuration](#browser-specific-prompt-dialog-configuration)).
 
 ## Licence
 
