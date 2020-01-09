@@ -9,7 +9,8 @@ export default function AddToHomeScreen(props) {
   const DEFAULT_PROMPT = {
     title: 'Install application?',
     cancelMsg: 'Not Now',
-    installMsg: 'Install'
+    installMsg: 'Install',
+    guidanceCancelMsg: 'Close'
   };
 
   const DEFAULT_SESSION = {
@@ -130,26 +131,34 @@ export default function AddToHomeScreen(props) {
         if (promptTarget.targetUrl) {
           location.replace(promptTarget.targetUrl);
         } else {
-          if (promptTarget.imgs && promptTarget.imgs.length > 0) {
+          if (promptTarget.images && promptTarget.images.length > 0) {
             let promptDialogBannerBody = athWrapper.querySelector(`.${ configuration.customPromptElements.banner }`);
             let promptDialogGuidanceBody = athWrapper.querySelector(`.${ configuration.customPromptElements.guidance }`);
             let promptDialogGuidanceImageCell = athWrapper.querySelector(`.${ configuration.customPromptElements.guidanceImageCell }`);
+            let promptDialogGuidanceCancelButton = athWrapper.querySelector(`.${ configuration.customPromptElements.guidanceCancelButton }`);
 
             promptDialogBannerBody.classList.add(configuration.hideClass);
             promptDialogGuidanceBody.classList.add(configuration.showClass);
 
-            for (let index = 0; index < promptTarget.imgs.length; index++) {
+            for (let index = 0; index < promptTarget.images.length; index++) {
               let img = new Image();
 
-              img.src = promptTarget.imgs[index].src;
-              img.alt = promptTarget.imgs[index].alt;
+              img.src = promptTarget.images[index].src;
+              img.alt = promptTarget.images[index].alt;
 
-              if (promptTarget.imgs[index].classes) {
-                img.classList.add(...promptTarget.imgs[index].classes);
+              if (promptTarget.images[index].classes) {
+                img.classList.add(...promptTarget.images[index].classes);
               }
               img.classList.add(configuration.showClass);
 
               promptDialogGuidanceImageCell.appendChild(img);
+            }
+
+            if (promptDialogGuidanceCancelButton) {
+              promptDialogGuidanceCancelButton.addEventListener('click', cancelPrompt);
+              promptDialogGuidanceCancelButton.classList.remove(configuration.hideClass);
+              promptDialogGuidanceCancelButton.innerText = promptTarget.guidanceCancelMsg != null ? promptTarget.guidanceCancelMsg :
+                  ((promptTarget.action && promptTarget.action.guidanceCancel) ? promptTarget.action.guidanceCancel : '');
             }
           }
           if (!isVisible(athWrapper)) {
@@ -617,7 +626,7 @@ export default function AddToHomeScreen(props) {
         <div className={ `${ configuration.customPromptElements.guidance } ${ configuration.customPromptElements.guidanceAddOns }` }>
           <div className={ `${ configuration.customPromptElements.guidanceImageCell } ${ configuration.customPromptElements.guidanceImageCellAddOns }` }/>
           <div className={ `${ configuration.customPromptElements.cancelButtonCell } ${ configuration.customPromptElements.cancelButtonCellAddOns }` }>
-            <button className={ `${ configuration.customPromptElements.cancelButton } ${ configuration.customPromptElements.cancelButtonAddOns }` }>Not Now</button>
+            <button className={ `${ configuration.customPromptElements.guidanceCancelButton } ${ configuration.customPromptElements.guidanceCancelButtonAddOns }` }>Close</button>
           </div>
         </div>
       </div>
@@ -652,7 +661,8 @@ AddToHomeScreen.propTypes = {
     title: PropTypes.string,
     src: PropTypes.string,
     cancelMsg: PropTypes.string,
-    installMsg: PropTypes.string
+    installMsg: PropTypes.string,
+    guidanceCancelMsg: PropTypes.string
   }),
   customPromptElements: PropTypes.shape({
     container: PropTypes.string,
@@ -678,72 +688,114 @@ AddToHomeScreen.propTypes = {
     guidance: PropTypes.string,
     guidanceAddOns: PropTypes.string,
     guidanceImageCell: PropTypes.string,
-    guidanceImageCellAddOns: PropTypes.string
+    guidanceImageCellAddOns: PropTypes.string,
+    guidanceCancelButton: PropTypes.string,
+    guidanceCancelButtonAddOns: PropTypes.string
   }),
   customPromptPlatformDependencies: PropTypes.shape({
     native: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
       targetUrl: PropTypes.string,
-      imgs: PropTypes.arrayOf(PropTypes.shape({
+      images: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      }))
+      })),
+      action: PropTypes.shape({
+        ok: PropTypes.string,
+        cancel: PropTypes.string,
+        guidanceString: PropTypes.string
+      })
     }),
     chromium: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
       targetUrl: PropTypes.string,
-      imgs: PropTypes.arrayOf(PropTypes.shape({
+      images: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      }))
+      })),
+      action: PropTypes.shape({
+        ok: PropTypes.string,
+        cancel: PropTypes.string,
+        guidanceString: PropTypes.string
+      })
     }),
     edge: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
       targetUrl: PropTypes.string,
-      imgs: PropTypes.arrayOf(PropTypes.shape({
+      images: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      }))
+      })),
+      action: PropTypes.shape({
+        ok: PropTypes.string,
+        cancel: PropTypes.string,
+        guidanceString: PropTypes.string
+      })
     }),
     iphone: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
       targetUrl: PropTypes.string,
-      imgs: PropTypes.arrayOf(PropTypes.shape({
+      images: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      }))
+      })),
+      action: PropTypes.shape({
+        ok: PropTypes.string,
+        cancel: PropTypes.string,
+        guidanceString: PropTypes.string
+      })
     }),
     ipad: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
       targetUrl: PropTypes.string,
-      imgs: PropTypes.arrayOf(PropTypes.shape({
+      images: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      }))
+      })),
+      action: PropTypes.shape({
+        ok: PropTypes.string,
+        cancel: PropTypes.string,
+        guidanceString: PropTypes.string
+      })
     }),
     firefox: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
       targetUrl: PropTypes.string,
-      imgs: PropTypes.arrayOf(PropTypes.shape({
+      images: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      }))
+      })),
+      action: PropTypes.shape({
+        ok: PropTypes.string,
+        cancel: PropTypes.string,
+        guidanceString: PropTypes.string
+      })
     }),
     samsung: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
       targetUrl: PropTypes.string,
-      imgs: PropTypes.arrayOf(PropTypes.shape({
+      images: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      }))
+      })),
+      action: PropTypes.shape({
+        ok: PropTypes.string,
+        cancel: PropTypes.string,
+        guidanceString: PropTypes.string
+      })
     }),
     opera: PropTypes.shape({
       showClasses: PropTypes.arrayOf(PropTypes.string),
       targetUrl: PropTypes.string,
-      imgs: PropTypes.arrayOf(PropTypes.shape({
+      images: PropTypes.arrayOf(PropTypes.shape({
         src: PropTypes.string,
         alt: PropTypes.string
-      }))
+      })),
+      action: PropTypes.shape({
+        ok: PropTypes.string,
+        cancel: PropTypes.string,
+        guidanceString: PropTypes.string
+      })
     })
   })
 };
