@@ -633,6 +633,20 @@ export default function AddToHomeScreen(props) {
   );
 }
 
+const platformPropType = PropTypes.shape({
+  showClasses: PropTypes.arrayOf(PropTypes.string),
+  targetUrl: PropTypes.string,
+  images: PropTypes.arrayOf(PropTypes.shape({
+    src: PropTypes.string,
+    alt: PropTypes.string
+  })),
+  action: PropTypes.shape({
+    ok: PropTypes.string,
+    cancel: PropTypes.string,
+    guidanceCancel: PropTypes.string
+  })
+});
+
 AddToHomeScreen.propTypes = {
   appId: PropTypes.string,
   debug: PropTypes.string,
@@ -693,109 +707,13 @@ AddToHomeScreen.propTypes = {
     guidanceCancelButtonAddOns: PropTypes.string
   }),
   customPromptPlatformDependencies: PropTypes.shape({
-    native: PropTypes.shape({
-      showClasses: PropTypes.arrayOf(PropTypes.string),
-      targetUrl: PropTypes.string,
-      images: PropTypes.arrayOf(PropTypes.shape({
-        src: PropTypes.string,
-        alt: PropTypes.string
-      })),
-      action: PropTypes.shape({
-        ok: PropTypes.string,
-        cancel: PropTypes.string,
-        guidanceCancel: PropTypes.string
-      })
-    }),
-    chromium: PropTypes.shape({
-      showClasses: PropTypes.arrayOf(PropTypes.string),
-      targetUrl: PropTypes.string,
-      images: PropTypes.arrayOf(PropTypes.shape({
-        src: PropTypes.string,
-        alt: PropTypes.string
-      })),
-      action: PropTypes.shape({
-        ok: PropTypes.string,
-        cancel: PropTypes.string,
-        guidanceCancel: PropTypes.string
-      })
-    }),
-    edge: PropTypes.shape({
-      showClasses: PropTypes.arrayOf(PropTypes.string),
-      targetUrl: PropTypes.string,
-      images: PropTypes.arrayOf(PropTypes.shape({
-        src: PropTypes.string,
-        alt: PropTypes.string
-      })),
-      action: PropTypes.shape({
-        ok: PropTypes.string,
-        cancel: PropTypes.string,
-        guidanceCancel: PropTypes.string
-      })
-    }),
-    iphone: PropTypes.shape({
-      showClasses: PropTypes.arrayOf(PropTypes.string),
-      targetUrl: PropTypes.string,
-      images: PropTypes.arrayOf(PropTypes.shape({
-        src: PropTypes.string,
-        alt: PropTypes.string
-      })),
-      action: PropTypes.shape({
-        ok: PropTypes.string,
-        cancel: PropTypes.string,
-        guidanceCancel: PropTypes.string
-      })
-    }),
-    ipad: PropTypes.shape({
-      showClasses: PropTypes.arrayOf(PropTypes.string),
-      targetUrl: PropTypes.string,
-      images: PropTypes.arrayOf(PropTypes.shape({
-        src: PropTypes.string,
-        alt: PropTypes.string
-      })),
-      action: PropTypes.shape({
-        ok: PropTypes.string,
-        cancel: PropTypes.string,
-        guidanceCancel: PropTypes.string
-      })
-    }),
-    firefox: PropTypes.shape({
-      showClasses: PropTypes.arrayOf(PropTypes.string),
-      targetUrl: PropTypes.string,
-      images: PropTypes.arrayOf(PropTypes.shape({
-        src: PropTypes.string,
-        alt: PropTypes.string
-      })),
-      action: PropTypes.shape({
-        ok: PropTypes.string,
-        cancel: PropTypes.string,
-        guidanceCancel: PropTypes.string
-      })
-    }),
-    samsung: PropTypes.shape({
-      showClasses: PropTypes.arrayOf(PropTypes.string),
-      targetUrl: PropTypes.string,
-      images: PropTypes.arrayOf(PropTypes.shape({
-        src: PropTypes.string,
-        alt: PropTypes.string
-      })),
-      action: PropTypes.shape({
-        ok: PropTypes.string,
-        cancel: PropTypes.string,
-        guidanceCancel: PropTypes.string
-      })
-    }),
-    opera: PropTypes.shape({
-      showClasses: PropTypes.arrayOf(PropTypes.string),
-      targetUrl: PropTypes.string,
-      images: PropTypes.arrayOf(PropTypes.shape({
-        src: PropTypes.string,
-        alt: PropTypes.string
-      })),
-      action: PropTypes.shape({
-        ok: PropTypes.string,
-        cancel: PropTypes.string,
-        guidanceCancel: PropTypes.string
-      })
-    })
+    native: platformPropType,
+    chromium: platformPropType,
+    edge: platformPropType,
+    iphone: platformPropType,
+    ipad: platformPropType,
+    firefox: platformPropType,
+    samsung: platformPropType,
+    opera: platformPropType
   })
 };
