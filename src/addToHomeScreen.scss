@@ -17,6 +17,13 @@
     position: relative;
 }
 
+.ath-guidance {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+}
+
 .ath-banner-title {
     align-items: center;
     display: flex;
@@ -26,17 +33,12 @@
     width: calc(100% - 240px);
 }
 
-.ath-banner-cell-2x,
 .ath-banner-cell {
     align-items: center;
     display: flex;
     justify-content: center;
     margin: 5px;
     width: 70px;
-}
-
-.ath-banner-cell-2x {
-    width: 120px;
 }
 
 .log-target {
@@ -111,13 +113,8 @@
         width: calc(100% - 360px);
     }
 
-    .ath-banner-cell-2x,
     .ath-banner-cell {
         width: 120px;
-    }
-
-    .ath-banner-cell-2x {
-        width: 160px;
     }
 
 }

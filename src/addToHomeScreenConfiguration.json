@@ -20,8 +20,6 @@
   "onCancel": null,
   "customCriteria": null,
   "customPromptContent": {},
-  "athWrapper": ".ath-container",
-  "athGuidance": "ath-guidance",
   "showClasses": [
     "animated",
     "d-flex"
@@ -29,11 +27,32 @@
   "showClass": "d-flex",
   "hideClass": "d-none",
   "customPromptElements": {
-    "title": ".ath-banner-title",
-    "body": ".ath-banner",
-    "logo": ".ath-prompt-logo",
-    "cancel": ".btn-cancel",
-    "install": ".btn-install"
+    "container": "ath-container",
+    "containerAddOns": "banner-bottom-center",
+    "banner": "ath-banner",
+    "bannerAddOns": "",
+    "logoCell": "ath-logo-cell",
+    "logoCellAddOns": "ath-banner-cell",
+    "logo": "ath-prompt-logo",
+    "logoAddOns": "",
+    "titleCell": "ath-title-cell",
+    "titleCellAddOns": "ath-banner-cell",
+    "title": "ath-banner-title",
+    "titleAddOns": "",
+    "cancelButtonCell": "ath-cancel-cell",
+    "cancelButtonCellAddOns": "ath-banner-cell",
+    "cancelButton": "btn-cancel",
+    "cancelButtonAddOns": "btn btn-link",
+    "installButtonCell": "ath-install-cell",
+    "installButtonCellAddOns": "ath-banner-cell",
+    "installButton": "btn-install",
+    "installButtonAddOns": "btn btn-success",
+    "guidance": "ath-guidance",
+    "guidanceAddOns": "",
+    "guidanceImageCell": "ath-guidance-image-cell",
+    "guidanceImageCellAddOns": "ath-banner-cell",
+    "guidanceCancelButton": "btn-cancel",
+    "guidanceCancelButtonAddOns": "btn btn-link"
   },
   "customPromptPlatformDependencies": {
     "native": {
