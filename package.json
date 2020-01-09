@@ -1,5 +1,5 @@
 {
-  "name": "@ideasio/add-to-homescreen-react",
+  "name": "add-to-homescreen-react",
   "version": "1.0.0",
   "description": "A React component providing add-to-home-screen functionality for different platforms and browsers.",
   "main": "build/AddToHomeScreen.js",
