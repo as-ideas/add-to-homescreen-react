@@ -133,11 +133,12 @@ export default function AddToHomeScreen(props) {
           if (promptTarget.imgs && promptTarget.imgs.length > 0) {
             let promptDialogBannerBody = athWrapper.querySelector(`.${ configuration.customPromptElements.banner }`);
             let promptDialogGuidanceBody = athWrapper.querySelector(`.${ configuration.customPromptElements.guidance }`);
+            let promptDialogGuidanceImageCell = athWrapper.querySelector(`.${ configuration.customPromptElements.guidanceImageCell }`);
 
             promptDialogBannerBody.classList.add(configuration.hideClass);
             promptDialogGuidanceBody.classList.add(configuration.showClass);
 
-            for (let index = promptTarget.imgs.length - 1; index >= 0; index--) {
+            for (let index = 0; index < promptTarget.imgs.length; index++) {
               let img = new Image();
 
               img.src = promptTarget.imgs[index].src;
@@ -148,7 +149,7 @@ export default function AddToHomeScreen(props) {
               }
               img.classList.add(configuration.showClass);
 
-              promptDialogGuidanceBody.insertBefore(img, promptDialogGuidanceBody.firstChild);
+              promptDialogGuidanceImageCell.appendChild(img);
             }
           }
           if (!isVisible(athWrapper)) {
@@ -614,6 +615,7 @@ export default function AddToHomeScreen(props) {
           </div>
         </div>
         <div className={ `${ configuration.customPromptElements.guidance } ${ configuration.customPromptElements.guidanceAddOns }` }>
+          <div className={ `${ configuration.customPromptElements.guidanceImageCell } ${ configuration.customPromptElements.guidanceImageCellAddOns }` }/>
           <div className={ `${ configuration.customPromptElements.cancelButtonCell } ${ configuration.customPromptElements.cancelButtonCellAddOns }` }>
             <button className={ `${ configuration.customPromptElements.cancelButton } ${ configuration.customPromptElements.cancelButtonAddOns }` }>Not Now</button>
           </div>
@@ -657,18 +659,26 @@ AddToHomeScreen.propTypes = {
     containerAddOns: PropTypes.string,
     banner: PropTypes.string,
     bannerAddOns: PropTypes.string,
-    bannerCell: PropTypes.string,
-    bannerCellAddOns: PropTypes.string,
+    logoCell: PropTypes.string,
+    logoCellAddOns: PropTypes.string,
     logo: PropTypes.string,
     logoAddOns: PropTypes.string,
+    titleCell: PropTypes.string,
+    titleCellAddOns: PropTypes.string,
     title: PropTypes.string,
     titleAddOns: PropTypes.string,
+    cancelButtonCell: PropTypes.string,
+    cancelButtonCellAddOns: PropTypes.string,
     cancelButton: PropTypes.string,
     cancelButtonAddOns: PropTypes.string,
+    installButtonCell: PropTypes.string,
+    installButtonCellAddOns: PropTypes.string,
     installButton: PropTypes.string,
     installButtonAddOns: PropTypes.string,
     guidance: PropTypes.string,
-    guidanceAddOns: PropTypes.string
+    guidanceAddOns: PropTypes.string,
+    guidanceImageCell: PropTypes.string,
+    guidanceImageCellAddOns: PropTypes.string
   }),
   customPromptPlatformDependencies: PropTypes.shape({
     native: PropTypes.shape({
