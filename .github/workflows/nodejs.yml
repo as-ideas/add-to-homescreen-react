@@ -26,7 +26,8 @@ jobs:
       run: |
         git config --local user.email "sheldons@asideas.de"
         git config --local user.name "AS Ideas"
-        git commit -m "Update built artifacts" -a
+        # Only commit if we have changes
+        git diff --quiet && git diff --staged --quiet || git commit -m "Update built artifacts" -a
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
