@@ -137,7 +137,7 @@ export default function AddToHomeScreen(props) {
             promptDialogBannerBody.classList.add(configuration.hideClass);
             promptDialogGuidanceBody.classList.add(configuration.showClass);
 
-            for (let index = 0; index < promptTarget.imgs.length; index++) {
+            for (let index = promptTarget.imgs.length - 1; index >= 0; index--) {
               let img = new Image();
 
               img.src = promptTarget.imgs[index].src;
@@ -148,7 +148,7 @@ export default function AddToHomeScreen(props) {
               }
               img.classList.add(configuration.showClass);
 
-              promptDialogGuidanceBody.appendChild(img);
+              promptDialogGuidanceBody.insertBefore(img, promptDialogGuidanceBody.firstChild);
             }
           }
           if (!isVisible(athWrapper)) {
