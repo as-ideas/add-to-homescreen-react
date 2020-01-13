@@ -150,8 +150,6 @@ export default function AddToHomeScreen(props) {
               if (promptTarget.images[index].classes) {
                 img.classList.add(...promptTarget.images[index].classes);
               }
-              img.classList.add(configuration.showClass);
-
               promptDialogGuidanceImageCell.appendChild(img);
             }
 
