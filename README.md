@@ -1,4 +1,7 @@
 # add-to-homescreen-react
+[![Latest Release](https://img.shields.io/github/release/as-ideas/add-to-homescreen-react.svg)](https://github.com/as-ideas/add-to-homescreen-react) 
+[![npm version](https://img.shields.io/npm/v/@ideasio/add-to-homescreen-react.svg)](https://www.npmjs.com/package/@ideasio/add-to-homescreen-react)
+[![Actions Status](https://github.com/as-ideas/add-to-homescreen-react/workflows/Node%20CI/badge.svg)](https://github.com/as-ideas/add-to-homescreen-react/actions)
 [![LGPLv3 license](https://img.shields.io/badge/License-LGPLv3-blue.svg)](http://www.gnu.de/documents/lgpl-3.0.de.html)
 
 A React component providing add-to-home-screen functionality for different platforms and browsers.
