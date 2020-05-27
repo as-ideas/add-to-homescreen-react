@@ -88,7 +88,11 @@ export default function AddToHomeScreen(props) {
 
     for (let key in DEFAULT_CONFIGURATION.customPromptPlatformDependencies) {
       if (DEFAULT_CONFIGURATION.customPromptPlatformDependencies.hasOwnProperty(key)) {
-        options.customPromptPlatformDependencies[key] = Object.assign({}, DEFAULT_CONFIGURATION.customPromptPlatformDependencies[key], props.customPromptPlatformDependencies[key]);
+        if (props.customPromptPlatformDependencies) {
+          options.customPromptPlatformDependencies[key] = Object.assign({}, DEFAULT_CONFIGURATION.customPromptPlatformDependencies[key], props.customPromptPlatformDependencies[key]);
+        } else {
+          options.customPromptPlatformDependencies[key] = DEFAULT_CONFIGURATION.customPromptPlatformDependencies[key];
+        }
       }
     }
     return options;
