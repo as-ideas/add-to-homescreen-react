@@ -4,11 +4,11 @@
 [![Actions Status](https://github.com/as-ideas/add-to-homescreen-react/workflows/Node%20CI/badge.svg)](https://github.com/as-ideas/add-to-homescreen-react/actions)
 [![LGPLv3 license](https://img.shields.io/badge/License-LGPLv3-blue.svg)](http://www.gnu.de/documents/lgpl-3.0.de.html)
 
-A React component providing add-to-home-screen functionality for different platforms and browsers.
+A React component providing add-to-home-screen functionality to your progressive web app for different platforms and browsers.
 
 ## What is it?
 
-`add-to-homescreen-react` allows you to easily inform your user that your React application is installable on the home screen of your mobile phone or on your desktop. It provides a
+`add-to-homescreen-react` allows you to easily inform your user that your React application is a PWA and installable on the home screen of your mobile phone or on your desktop. It provides a
 highly configurable React component named `AddToHomeScreen` that supports different browsers and platforms. Where possible, browser's native add-to-homescreen functionality is used.
 Where not, a guidance for the user can be shown.
 
