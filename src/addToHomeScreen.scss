@@ -1,224 +1,116 @@
 .ath-container {
-    background-color: #eeeeee;
-    color: #000000;
-    display: none;
-    flex-direction: column;
-    padding: 1%;
-    position: fixed;
-    text-align: center;
-    width: 100%;
-    z-index: 1000;
-}
-
-.ath-banner {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    position: relative;
-}
-
-.ath-guidance {
-    display: none;
-    flex-direction: row;
-    justify-content: center;
-    position: relative;
-}
-
-.ath-banner-title {
-    align-items: center;
-    display: flex;
-    font-size: 1rem;
-    justify-content: center;
-    text-align: center;
-    width: calc(100% - 240px);
-}
-
-.ath-banner-cell {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    margin: 5px;
-    width: 70px;
-}
-
-.log-target {
-    overflow-wrap: break-word;
-}
-
-.banner-top-left {
-    left: 0;
-    top: 0;
-}
-
-.banner-top-right {
-    right: 0;
-    top: 0;
-}
-
-.banner-bottom-left {
-    bottom: 0;
-    left: 0;
-}
-
-.banner-bottom-right {
-    bottom: 0;
-    right: 0;
-}
-
-.banner-center {
-    left: 25%;
-    top: 25%;
-}
-
-.banner-center-left {
-    left: 0;
-    top: 25%;
-}
-
-.banner-center-right {
-    right: 0;
-    top: 25%;
-}
-
-.banner-top-center {
-    left: 25%;
-    top: 12px;
-    width: 50%;
-}
-
-.banner-bottom-center {
-    bottom: 12px;
-}
-
-.ath-guidance img {
-    bottom: 0;
-}
-
-@media (min-width: 576px) {
-
-    .banner-dialog-centered {
-        min-height: calc(100% - 3.5rem);
-    }
-
-    .ath-banner-cell {
-        margin: 3px;
-        width: 90px;
-    }
-
+  background-color: #eeeeee;
+  color: #000000;
+  display: none;
+  position: sticky;
+  width: 100%;
+  max-width: 1440px;
+  bottom: 0;
+  z-index: 1000;
+  padding: 2%;
 }
 
 @media (min-width: 768px) {
 
-    .ath-banner-title {
-        width: calc(100% - 360px);
-    }
-
-    .ath-banner-cell {
-        width: 120px;
-    }
-
-}
-
-@media (min-width: 992px) {
-
-    .banner-lg {
-        width: 50%;
-    }
-
-    .banner-lg-top-center {
-        left: 25%;
-        top: 12px;
-    }
-
-    .banner-lg-bottom-center {
-        bottom: 12px;
-        left: 25%;
-    }
-
-    .banner-bottom-center {
-        left: 20%;
-        width: 60%;
-    }
-
-    .ath-container img {
-        left: 15%;
-    }
+  .ath-container {
+    padding: 0.5%;
+    max-width: 530px;
+    margin: auto;
+    width: 75%;
+  }
 
 }
 
-.edge-wrapper,
-.firefox-wrapper,
-.samsung-wrapper,
-.opera-home-screen-wrapper {
-    opacity: 1;
-}
+@media (min-width: 1048px) {
 
-.firefox-wrapper,
-.samsung-wrapper,
-.opera-home-screen-wrapper {
-    bottom: 21px;
-}
-
-.opera-home-screen-wrapper {
-    left: auto;
-    max-width: 483px;
-    right: 6px;
+  .ath-container {
     width: 100%;
-}
-
-.ipad-wrapper img {
-    top: 0;
-}
-
-.animated.delay-7s {
-    animation-delay: 7s;
-}
-
-.overlay-1 {
-    z-index: 2020;
-}
-
-.overlay-2 {
-    z-index: 2040;
-}
-
-.overlay {
-    bottom: 0;
-    height: 100%;
-    left: 0;
-    opacity: 0;
-    position: absolute;
+    position: fixed;
     right: 0;
-    top: 0;
-    transition: .3s ease;
-    width: 100%;
+  }
+
 }
 
-.ath-container p {
-    font-size: 1.1em;
-    margin: 0;
+.ath-banner {
+  display: grid;
+  grid-template-areas: 'logo content' 'install install';
+  position: relative;
+  grid-template-columns: 1fr 3fr;
+
+  .btn-cancel {
+    background: url("/images/icons/close.svg") no-repeat;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    position: absolute;
+    border: 0;
+    margin-right: 3px;
+    margin-top: 3px;
     padding: 0;
-    position: relative;
-    text-shadow: 0 0.1em 0 #ffffff;
-    z-index: 2147483642;
+    top: 0;
+    right: 0;
+  }
+
 }
 
-.d-none {
-    display: none !important;
+.ath-banner-cell {
+  align-items: center;
 }
 
-.d-block {
-    display: block !important;
+.ath-logo-cell {
+  text-align: center;
+  grid-area: logo;
 }
 
-.d-flex {
-    display: -ms-flexbox !important;
-    display: flex !important;
+.ath-title-cell {
+  align-self: center;
+  grid-area: content;
 }
 
-.animated {
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
+.ath-install-cell {
+  text-align: right;
+  grid-area: install;
+
+  .btn {
+    display: unset;
+  }
+}
+
+.ath-guidance {
+  display: none;
+  grid-template-areas: 'cancel' 'image';
+  position: relative;
+
+  .ath-cancel-cell {
+    grid-area: cancel;
+    text-align: right;
+  }
+
+}
+
+.ath-guidance-image-cell {
+  grid-area: image;
+  text-align: center;
+}
+
+.btn-cancel {
+  background: url("/images/icons/close.svg") no-repeat;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  border: 0;
+}
+
+.ath-prompt-logo {
+  border-radius: 30px;
+  border: 1px solid black;
+}
+
+.ath-banner-title {
+  font-weight: bold;
+  font-size: large;
+}
+
+.d-grid {
+  display: grid !important;
 }

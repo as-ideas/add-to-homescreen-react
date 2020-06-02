@@ -652,7 +652,7 @@ const platformPropType = PropTypes.shape({
 
 AddToHomeScreen.propTypes = {
   appId: PropTypes.string,
-  debug: PropTypes.string,
+  debug: PropTypes.bool,
   activateLogging: PropTypes.bool,
   isModal: PropTypes.bool,
   isMandatory: PropTypes.bool,

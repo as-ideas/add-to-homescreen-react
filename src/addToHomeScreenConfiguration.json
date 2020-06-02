@@ -1,7 +1,7 @@
 {
   "appId": "add-to-homescreen-react",
   "debug": false,
-  "logging": false,
+  "activateLogging": false,
   "modal": false,
   "mandatory": false,
   "autoStart": true,
