@@ -564,11 +564,11 @@
       "sizes": "50x50"
     }
   ],
-  "name": "Axel Springer Kiez Portal",
-  "short_name": "Kiez Portal",
+  "name": "Add-to-Homescreen React",
+  "short_name": "ATH React",
   "lang": "de-DE",
   "dir": "auto",
   "theme_color": "#000000",
   "background_color": "#ffffff",
-  "description": "The one and only Kiez Portal for Axel Springer employees."
+  "description": "Add-to-Homescreen React Basic Integration Example."
 }

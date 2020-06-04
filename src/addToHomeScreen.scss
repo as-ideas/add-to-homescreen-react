@@ -101,6 +101,14 @@
   border: 0;
 }
 
+.btn-guidance-cancel {
+  background: url("/images/icons/close.svg") no-repeat;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  border: 0;
+}
+
 .ath-prompt-logo {
   border-radius: 30px;
   border: 1px solid black;
@@ -113,4 +121,8 @@
 
 .d-grid {
   display: grid !important;
+}
+
+.d-none {
+  display: none !important;
 }

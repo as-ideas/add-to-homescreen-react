@@ -51,7 +51,7 @@
     "guidanceAddOns": "",
     "guidanceImageCell": "ath-guidance-image-cell",
     "guidanceImageCellAddOns": "ath-banner-cell",
-    "guidanceCancelButton": "btn-cancel",
+    "guidanceCancelButton": "btn-guidance-cancel",
     "guidanceCancelButtonAddOns": "btn btn-link"
   },
   "customPromptPlatformDependencies": {

@@ -2,7 +2,7 @@ const Path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-module.exports = (env, argv) => {
+module.exports = () => {
   const outputFolder = Path.join(__dirname, './dist');
 
   return {
