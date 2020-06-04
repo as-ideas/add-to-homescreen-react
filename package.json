@@ -25,7 +25,7 @@
     "build": "webpack --mode production",
     "build:example-basic-integration": "webpack --mode production --config=examples/basic-integration/webpack.examples.config.js",
     "start": "npm run start:basic-integration",
-    "start:basic-integration": "webpack-dev-server --config=./webpack.examples.config.js"
+    "start:basic-integration": "webpack-dev-server --config=examples/basic-integration/webpack.examples.config.js"
   },
   "dependencies": {
     "react": "16.13.1",

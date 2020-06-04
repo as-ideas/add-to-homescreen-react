@@ -16,7 +16,7 @@ export default function App() {
         </footer>
         <AddToHomeScreen
             data-test='add-to-homescreen'
-            appId='Add-to-Homescreen Basic Integration Example'
+            appId='Add-to-Homescreen React Basic Integration Example'
             lifespan={ 15 }
             startDelay={ 0 }
             startAutomatically={ true }
@@ -24,7 +24,7 @@ export default function App() {
             minSessions={ 0 }
             displayPace={ 0 }
             customPromptContent={ {
-              title: 'Add-to-Homescreen Basic Integration Example',
+              title: 'Add-to-Homescreen React Basic Integration Example',
               cancelMsg: '',
               installMsg: 'Add to Home Screen',
               guidanceCancelMsg: '',
