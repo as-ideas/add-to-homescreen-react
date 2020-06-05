@@ -12,7 +12,7 @@ export default function App() {
           <p>React demo application for basic integration of Add-to-Homescreen React component into a React application.</p>
         </main>
         <footer>
-          <p>2020, Ideas Engineering GmbH.</p>
+          <p>2020, <a href="https://www.ideas-engineering.io/" target="_blank">Ideas Engineering GmbH.</a></p>
         </footer>
         <AddToHomeScreen
             data-test='add-to-homescreen'

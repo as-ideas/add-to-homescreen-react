@@ -39,7 +39,9 @@ export default function AddToHomeScreen(props) {
   useEffect(initialize, []);
 
   function initialize() {
+    doLog('Add to Homescreen init');
     if ('onbeforeinstallprompt' in window) {
+      doLog('Add to Homescreen add handleBeforeInstallPrompt listener');
       window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
       showNativePrompt = true;
 
@@ -101,9 +103,11 @@ export default function AddToHomeScreen(props) {
   function buildGuidanceURLs(prompts) {
     for (let key in prompts) {
       if (prompts.hasOwnProperty(key)) {
+          doLog('Add to Homescreen: buildGuidanceURLs: '+key)
         let target = prompts[key].targetUrl;
 
         if (target) {
+          doLog('Add to Homescreen: buildGuidanceURLs: '+key+'/'+target)
           guidanceTargetUrls.push(target);
         }
       }
@@ -120,6 +124,7 @@ export default function AddToHomeScreen(props) {
    */
   function showPlatformGuidance(skipNative) {
     let target = getPlatform(skipNative);
+    doLog('Add to homescreen: showPlatformGuidance for: ' + target);
     let athWrapper = document.querySelector(`.${ configuration.customPromptElements.container }`);
 
     if (athWrapper) {
@@ -187,6 +192,7 @@ export default function AddToHomeScreen(props) {
       doLog('no service worker');
       platform.isCompatible = false;
     }
+    doLog('Add to homescreen: service worker found increasing pageviews');
 
     session.pageViews += 1;
     updateSession();
@@ -217,11 +223,14 @@ export default function AddToHomeScreen(props) {
       configuration.onInit.call(this);
     }
 
+      doLog('Add to home screen: decide to show: autoStart: '+configuration.startAutomatically+' ### beforeInstallPromptEvent: '+beforeInstallPromptEvent+' ### showNativePrompt: '+showNativePrompt);
     if (configuration.startAutomatically && !!beforeInstallPromptEvent) {
       doLog('Add to home screen: autoStart displaying callout');
       show();
     } else if (!showNativePrompt) {
       show();
+    }else {
+      doLog('Add to home screen: did decide to show nothing');
     }
 
   }
@@ -239,6 +248,7 @@ export default function AddToHomeScreen(props) {
   function checkPlatform() {
     // browser info and capability
     let userAgent = window.navigator.userAgent;
+    doLog('Add to homescreen: checkPlatform found useraget: ' + userAgent);
 
     platform.isIDevice = (/iphone|ipod|ipad/i).test(userAgent);
     platform.isSamsung = /Samsung/i.test(userAgent);
@@ -402,6 +412,7 @@ export default function AddToHomeScreen(props) {
   function canPrompt() {
     // already evaluated the situation, so don't do it again
     if (canPromptState !== undefined) {
+      doLog('Add to home screen: canPrompt already evaluated: ' + canPromptState.toString());
       return canPromptState;
     }
 

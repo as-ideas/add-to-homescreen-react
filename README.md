@@ -231,6 +231,7 @@ To run it locally run `npm run start:basic-integration`. It ist then available u
 
 To build it run `npm run build:example-basic-integration`.
 
+You can see the example running at https://as-ideas.github.io/add-to-homescreen-react/
 
 ## Licence
 
