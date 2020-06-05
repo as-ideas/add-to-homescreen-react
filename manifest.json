@@ -1,11 +1,11 @@
 {
-  "start_url": "/add-to-homescreen-react",
-  "scope": "/add-to-homescreen-react",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "orientation": "any",
   "serviceworker": {
     "src": "serviceWorker.js",
-    "scope": "/add-to-homescreen-react"
+    "scope": "/"
   },
   "icons": [
     {
