@@ -1,6 +1,6 @@
 {
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "/add-to-homescreen-react/",
+  "scope": "/add-to-homescreen-react/",
   "display": "standalone",
   "orientation": "any",
   "serviceworker": {
