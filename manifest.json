@@ -5,7 +5,7 @@
   "orientation": "any",
   "serviceworker": {
     "src": "serviceWorker.js",
-    "scope": "/"
+    "scope": "/add-to-homescreen-react/"
   },
   "icons": [
     {
