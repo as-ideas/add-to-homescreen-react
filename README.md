@@ -5,6 +5,16 @@
 [![LGPLv3 license](https://img.shields.io/badge/License-LGPLv3-blue.svg)](http://www.gnu.de/documents/lgpl-3.0.de.html)
 
 A React component providing add-to-home-screen functionality for progressive webapps on different platforms and browsers.
+# Table of Contents
+1. [What is it](#what-is-it)
+2. [Usage](#usage)
+3. [Configuration](#configuration-for-the-add-to-home-screen-module-a-nameconfiguration-)
+4. [Custom Prompt Content](#custom-prompt-content)
+5. [Browser specific prompt dialog](#browser-specific-prompt-dialog-configuration)
+6. [Customizing add-to-homescreen prompt](#customizing-add-to-homescreen-prompt)
+7. [Example](#example)
+8. [Licence](#licence)
+
 
 ## What is it?
 
@@ -31,7 +41,7 @@ Then add the component to your app:
 This is the simplest way to use this component. There is a wide range of configuration options available you can use to customize the behaviour and design of the component.
 See section [Configuration for the Add-to-home-screen module](#configuration-for-the-add-to-home-screen-module) for a description of all available configuration parameters.
 
-## Configuration for the Add-to-home-screen module
+## Configuration for the Add-to-home-screen module <a name="configuration" />
 
 Configuration is defined in the `addToHomeScreenConfiguration.json` file. The following parameters exist and can be customized:
 
@@ -213,6 +223,14 @@ Here is an overview of these AddOns-Keys and their default values:
 There is another configuration key named `showClasses` that can be used to define CSS classes that are added dynamically to the prompt dialog wrapper (the container) whenever it is
 shown. This can be done globally (see section [Configuration for the Add-to-home-screen module](#configuration-for-the-add-to-home-screen-module)) or per supported browser or
 platform (see section [Browser specific prompt dialog configuration](#browser-specific-prompt-dialog-configuration)).
+
+## Example
+You can find an example under `examples/basic-integration`.
+
+To run it locally run `npm run start:basic-integration`. It ist then available under [http://localhost:8081](http://localhost:8081). 
+
+To build it run `npm run build:example-basic-integration`.
+
 
 ## Licence
 
