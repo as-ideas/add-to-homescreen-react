@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/as-ideas/add-to-homescreen-react/issues"
   },
-  "homepage": "https://as-ideas.github.io/add-to-homescreen-react/",
+  "homepage": "https://github.com/as-ideas/add-to-homescreen-react/blob/master/README.md",
   "scripts": {
     "build": "webpack --mode production",
     "build:example-basic-integration": "webpack --mode production --config=examples/basic-integration/webpack.examples.config.js",
