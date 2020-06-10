@@ -6,7 +6,7 @@ export default function App() {
   return (
       <div>
         <header>
-          <h1>Add-to-Homescreen React Example</h1>
+          <h1>Add-to-Homescreen React Basic Integration Example</h1>
         </header>
         <main>
           <p>React demo application for basic integration of Add-to-Homescreen React component into a React application.</p>

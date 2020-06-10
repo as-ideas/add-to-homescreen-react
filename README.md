@@ -12,7 +12,7 @@ A React component providing add-to-home-screen functionality for progressive web
 4. [Custom Prompt Content](#custom-prompt-content)
 5. [Browser specific prompt dialog](#browser-specific-prompt-dialog-configuration)
 6. [Customizing add-to-homescreen prompt](#customizing-add-to-homescreen-prompt)
-7. [Example](#example)
+7. [Examples](#examples)
 8. [Licence](#licence)
 
 
@@ -49,7 +49,7 @@ Configuration is defined in the `addToHomeScreenConfiguration.json` file. The fo
 |---|---|---|
 | appId | The id of the application. It is used as key for the local storage entry. It is recommended to define it specifically for your application. | `add-to-homescreen-react` |
 | debug | Indicates the platform that should be simulated for debugging purposes. Overrides browser checks. See section [Browser specific prompt dialog configuration](#browser-specific-prompt-dialog-configuration) for the list of supported platform keys. | `false` |
-| activateLogging | Activate logging to JS console for the module. Defaults to `true` when `debug` is not `false`. | false | 
+| activateLogging | Activate logging to JS console for the module. Defaults to `true` when `debug` is not `false`. | `false` | 
 | isModal | Prevent further actions until the message is closed. | `false` |
 | isMandatory | User can't proceed without adding the app to the home screen. | `false` |
 | startAutomatically | Show the message automatically. | `true` |
@@ -186,7 +186,7 @@ configuration parameters defining these classes. For a better understanding of t
 The values in brackets (`{}`) are the configuration keys you can use within the `customPromptElements` parameter to define or change the CSS classes. The following table
 describes these keys and their default value. 
 
-| **key** | **Description** | **Default CSS class** |
+| **Key** | **Description** | **Default CSS class** |
 |---|---|---|
 | container | The `<div>` element wrapping the whole prompt dialog. | `ath-container` |
 | banner | The `<div>` element that defines the prompt dialog. If it is shown the guidance dialog is hidden. | `ath-banner` |
@@ -206,7 +206,7 @@ Please note, that each of these keys accepts only one CSS class. This is necessa
 HTML element. For your CSS ruleset you can add further CSS classes to the elements by the corresponding AddOns-keys that exist for each of the CSS class key in the table above.
 Here is an overview of these AddOns-Keys and their default values:
  
-| **key** | **Default value** |
+| **Key** | **Default value** |
 |---|---|
 | containerAddOns | `banner-bottom-center` |
 | bannerAddOns | '' |
@@ -226,14 +226,58 @@ There is another configuration key named `showClasses` that can be used to defin
 shown. This can be done globally (see section [Configuration for the Add-to-home-screen module](#configuration-for-the-add-to-home-screen-module)) or per supported browser or
 platform (see section [Browser specific prompt dialog configuration](#browser-specific-prompt-dialog-configuration)).
 
-## Example
-You can find an example under `examples/basic-integration`.
+## Examples
 
-To run it locally run `npm run start:basic-integration`. It is then available under [http://localhost:8081](http://localhost:8081). 
+In the `examples` directory you can find some examples of how to integrate the Add-to-Homescreen React component into a React application.
+The following examples are available:
 
-To build it run `npm run build:example-basic-integration`.
+| **Example** | **Description** |
+|---|---|
+| [`basic-integration`](example-basic-integration) | Demonstrates the simplest way to integrate the Add-to-Homescreen React component. |
+| [`guidance-images`](example-guidance-images) | Demonstrates the integration of the Add-to-Homescreen React component with customized guidance images for browser platforms not supporting native add-to-homescreen dialogs. | 
 
-You can see the example running at https://as-ideas.github.io/add-to-homescreen-react/
+### Example `basic-integration`
+
+#### Where to find
+This example can be found within directory `examples/basic-integration`.
+
+#### Build & Run
+Build is done by command `npm run build:example-basic-integration`. Compiled example is then available within directory `example/basic-integration/dist`.
+
+Run the example locally with command `npm run start:example-basic-integration`. It is then available under [http://localhost:8081](http://localhost:8081). 
+
+#### Description
+This example demonstrates the simplest way to integrate the Add-to-Homescreen React component. It creates a simple React application with an `App` component (see the `app.js` file)
+that integrates the Add-to-Homescreen React component by importing and adding it simply with its tag.
+
+Without any configuration parameters (props) the Add-to-Homescreen React component works with its default configuration. It is shown automatically on first invocation of the
+application for a limited time. After that it is shown again after one day. See section [Configuration](#configuration-for-the-add-to-home-screen-module) for details about the
+default configuration.
+
+### Example `guidance-images`
+
+#### Where to find
+This example can be found within directory `examples/guidance-images`.
+
+#### Build & Run
+Build is done by command `npm run build:example-guidance-images`. Compiled example is then available within directory `example/guidance-images/dist`.
+
+Run the example locally with command `npm run start:example-guidance-images`. It is then available under [http://localhost:8082](http://localhost:8082). 
+
+#### Description
+This example demonstrates the integration of the Add-to-Homescreen React component with customized guidance images for browsers that don't support 
+native add-to-homescreen dialogs. It creates a simple React application with an `App` component (see the `app.js` file) that
+integrates the Add-to-Homescreen React component by importing and adding it with its tag. This tag is configured with the `customPromptPlatformDependencies`
+parameter that defines the guidance images for each supported browser platform. It is possible to define some of them only. For missing platforms their
+default configuration is used then.
+
+By comparing this example with [Browser specific prompt dialog](#browser-specific-prompt-dialog-configuration) customization documentation you may note that
+some supported keys of the platform entries are missed in this example. This is not a problem. Every missing key is supplemented from default configuration.
+So it is possible to specify only the keys that you really want to change like guidance images in this case.
+
+All other configuration keys are taken from default configuration too. So the Add-to-Homescreen React component is shown automatically on first invocation
+of the application for a limited time. After that it is shown again after one day. See section [Configuration](#configuration-for-the-add-to-home-screen-module) for details about the
+default configuration.
 
 ## Licence
 
