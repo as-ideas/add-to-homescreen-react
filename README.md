@@ -233,10 +233,10 @@ The following examples are available:
 
 | **Example** | **Description** |
 |---|---|
-| [`basic-integration`](basic-integration-example) | Demonstrates the simplest way to integrate the Add-to-Homescreen React component. |
-| [`guidance-images`](guidance-images-example) | Demonstrates the integration of the Add-to-Homescreen React component with customized guidance images for browser platforms not supporting native add-to-homescreen dialogs. | 
+| [`basic-integration`](#example-basic-integration) | Demonstrates the simplest way to integrate the Add-to-Homescreen React component. |
+| [`guidance-images`](#example-guidance-images) | Demonstrates the integration of the Add-to-Homescreen React component with customized guidance images for browser platforms not supporting native add-to-homescreen dialogs. | 
 
-### `basic-integration` example
+### Example `basic-integration`
 
 #### Where to find
 This example can be found within directory `examples/basic-integration`.
@@ -254,7 +254,7 @@ Without any configuration parameters (props) the Add-to-Homescreen React compone
 application for a limited time. After that it is shown again after one day. See section [Configuration](#configuration-for-the-add-to-home-screen-module) for details about the
 default configuration.
 
-### `guidance-images` example
+### Example `guidance-images`
 
 #### Where to find
 This example can be found within directory `examples/guidance-images`.
