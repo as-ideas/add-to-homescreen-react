@@ -7,10 +7,11 @@ import DEFAULT_CONFIGURATION from './addToHomeScreenConfiguration.json';
 export default function AddToHomeScreen(props) {
 
   const DEFAULT_PROMPT = {
-    title: 'Install application?',
-    cancelMsg: 'Not Now',
+    title: 'Do you want to install this application on your homescreen?',
+    cancelMsg: 'Not now',
     installMsg: 'Install',
-    guidanceCancelMsg: 'Close'
+    guidanceCancelMsg: 'Close',
+    src: 'images/logos/default/StoreLogo.png'
   };
 
   const DEFAULT_SESSION = {
@@ -103,11 +104,11 @@ export default function AddToHomeScreen(props) {
   function buildGuidanceURLs(prompts) {
     for (let key in prompts) {
       if (prompts.hasOwnProperty(key)) {
-          doLog('Add to Homescreen: buildGuidanceURLs: '+key)
+        doLog('Add to Homescreen: buildGuidanceURLs: ' + key);
         let target = prompts[key].targetUrl;
 
         if (target) {
-          doLog('Add to Homescreen: buildGuidanceURLs: '+key+'/'+target)
+          doLog('Add to Homescreen: buildGuidanceURLs: ' + key + '/' + target);
           guidanceTargetUrls.push(target);
         }
       }
@@ -223,13 +224,13 @@ export default function AddToHomeScreen(props) {
       configuration.onInit.call(this);
     }
 
-      doLog('Add to home screen: decide to show: autoStart: '+configuration.startAutomatically+' ### beforeInstallPromptEvent: '+beforeInstallPromptEvent+' ### showNativePrompt: '+showNativePrompt);
+    doLog('Add to home screen: decide to show: autoStart: ' + configuration.startAutomatically + ' ### beforeInstallPromptEvent: ' + beforeInstallPromptEvent + ' ### showNativePrompt: ' + showNativePrompt);
     if (configuration.startAutomatically && !!beforeInstallPromptEvent) {
       doLog('Add to home screen: autoStart displaying callout');
       show();
     } else if (!showNativePrompt) {
       show();
-    }else {
+    } else {
       doLog('Add to home screen: did decide to show nothing');
     }
 
@@ -437,6 +438,7 @@ export default function AddToHomeScreen(props) {
     // the device is not supported
     if (!platform.isCompatible) {
       doLog('Add to home screen: not displaying callout because device not supported');
+      doLog('platform: ' + JSON.stringify(platform));
       return false;
     }
 

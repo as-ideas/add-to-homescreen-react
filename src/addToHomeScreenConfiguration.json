@@ -2,9 +2,9 @@
   "appId": "add-to-homescreen-react",
   "debug": false,
   "activateLogging": false,
-  "modal": false,
-  "mandatory": false,
-  "autoStart": true,
+  "isModal": false,
+  "isMandatory": false,
+  "startAutomatically": true,
   "skipFirstVisit": false,
   "minPageViews": 0,
   "startDelay": 1,
@@ -18,14 +18,14 @@
   "onAdd": null,
   "onInstall": null,
   "onCancel": null,
-  "customCriteria": null,
-  "customPromptContent": {},
   "showClasses": [
     "animated",
-    "d-flex"
+    "d-grid"
   ],
-  "showClass": "d-flex",
+  "showClass": "d-grid",
   "hideClass": "d-none",
+  "customCriteria": null,
+  "customPromptContent": {},
   "customPromptElements": {
     "container": "ath-container",
     "containerAddOns": "banner-bottom-center",
@@ -59,6 +59,12 @@
       "showClasses": [
         "fadeInUp",
         "right-banner"
+      ],
+      "images": [
+        {
+          "src": "images/guidance/chromium.png",
+          "alt": "Guide to install application on home screen."
+        }
       ]
     },
     "edge": {
@@ -68,6 +74,12 @@
         "fadeIn",
         "d-block",
         "right-banner"
+      ],
+      "images": [
+        {
+          "src": "images/guidance/chromium.png",
+          "alt": "Guide to install application on home screen."
+        }
       ]
     },
     "chromium": {
@@ -77,6 +89,12 @@
         "fadeIn",
         "d-block",
         "right-banner"
+      ],
+      "images": [
+        {
+          "src": "images/guidance/chromium.png",
+          "alt": "Guide to install application on home screen."
+        }
       ]
     },
     "iphone": {
@@ -85,6 +103,12 @@
         "animated",
         "fadeIn",
         "d-block"
+      ],
+      "images": [
+        {
+          "src": "images/guidance/iphone.png",
+          "alt": "Guide to install application on home screen."
+        }
       ]
     },
     "ipad": {
@@ -93,6 +117,12 @@
         "animated",
         "fadeIn",
         "d-block"
+      ],
+      "images": [
+        {
+          "src": "images/guidance/ipad.png",
+          "alt": "Guide to install application on home screen."
+        }
       ]
     },
     "firefox": {
@@ -101,6 +131,12 @@
         "animated",
         "fadeIn",
         "d-block"
+      ],
+      "images": [
+        {
+          "src": "images/guidance/firefox.png",
+          "alt": "Guide to install application on home screen."
+        }
       ]
     },
     "samsung": {
@@ -109,6 +145,12 @@
         "animated",
         "fadeIn",
         "d-block"
+      ],
+      "images": [
+        {
+          "src": "images/guidance/firefox.png",
+          "alt": "Guide to install application on home screen."
+        }
       ]
     },
     "opera": {
@@ -117,6 +159,12 @@
         "animated",
         "fadeIn",
         "d-block"
+      ],
+      "images": [
+        {
+          "src": "images/guidance/opera.png",
+          "alt": "Guide to install application on home screen."
+        }
       ]
     }
   }

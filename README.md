@@ -8,7 +8,7 @@ A React component providing add-to-home-screen functionality for progressive web
 # Table of Contents
 1. [What is it](#what-is-it)
 2. [Usage](#usage)
-3. [Configuration](#configuration-for-the-add-to-home-screen-module-a-nameconfiguration-)
+3. [Configuration](#configuration-for-the-add-to-home-screen-module)
 4. [Custom Prompt Content](#custom-prompt-content)
 5. [Browser specific prompt dialog](#browser-specific-prompt-dialog-configuration)
 6. [Customizing add-to-homescreen prompt](#customizing-add-to-homescreen-prompt)
@@ -41,7 +41,7 @@ Then add the component to your app:
 This is the simplest way to use this component. There is a wide range of configuration options available you can use to customize the behaviour and design of the component.
 See section [Configuration for the Add-to-home-screen module](#configuration-for-the-add-to-home-screen-module) for a description of all available configuration parameters.
 
-## Configuration for the Add-to-home-screen module <a name="configuration" />
+## Configuration for the Add-to-home-screen module
 
 Configuration is defined in the `addToHomeScreenConfiguration.json` file. The following parameters exist and can be customized:
 
@@ -66,8 +66,8 @@ Configuration is defined in the `addToHomeScreenConfiguration.json` file. The fo
 | onAdd | A function being executed when the application is launched the first time from the home screen (guesstimate). | `null` | 
 | onInstall | A function being executed when 'Install' button has been clicked. | `null` |
 | onCancel | A function being executed when 'Cancel' button has been clicked. | `null` |
-| showClasses | CSS classes to be added for all supported browsers and platforms to the HTML element specified by the `ath-container` CSS class (see section [Customizing add-to-homescreen prompt](#customizing-add-to-homescreen-prompt) for details) | `['animated', 'd-flex']` |
-| showClass | CSS class that ensures that an element is shown. At least, it must define the `display` CSS property. | `d-flex` |
+| showClasses | CSS classes to be added for all supported browsers and platforms to the HTML element specified by the `ath-container` CSS class (see section [Customizing add-to-homescreen prompt](#customizing-add-to-homescreen-prompt) for details) | `['animated', 'd-grid']` |
+| showClass | CSS class that ensures that an element is shown. At least, it must define the `display` CSS property. | `d-grid` |
 | hideClass | CSS class that ensures that an element is hidden. At least, it must define the `display` CSS property and set it to `hide`. | `d-none` |
 | customCriteria | A hook to provide either a custom method or a simple `true` (= always) or `false` (= never) value to control when it prompts. | `null` (the same as `true`)|
 | customPromptContent | Allows customization of the custom prompt dialog's content. See section [Custom Prompt Content](#custom-prompt-content). | `{}` |
@@ -101,7 +101,7 @@ platforms. The following platforms are supported:
 | Chromium-based Browsers | `chromium` |
 | iPhone | `iphone` |
 | iPad | `ipad` |
-| Firefox Browser | `firefox` |
+| Firefox Browser (Android only) | `firefox` |
 | Samsung Phones | `samsung` |
 | Opera Browser | `opera` |
 
@@ -148,6 +148,8 @@ Here is an example for a complete platform entry:
   }
 }
 ```
+
+See the file [Browser specific prompt dialog configuration](src/addToHomeScreenConfiguration.json) for default definition of `customPromptPlatformDependencies`.
 
 ## Customizing add-to-homescreen prompt
 
@@ -198,7 +200,7 @@ describes these keys and their default value.
 | installButton | The `<button>` element for the 'Install' button of the prompt dialog has this CSS class. | `btn-install` |
 | guidance | The `<div>` element that defines the guidance dialog. If it is shown the prompt dialog is hidden. | `ath-guidance` |
 | guidanceImageCell | The cell element that wraps the guidance image(s). The images are added to this cell dynamically from configuration. | `ath-guidance-image-cell` |
-| guidanceCancelButton | The `<button>` element for the 'Cancel' button of the guidance dialog has this CSS class. | `btn-cancel` |
+| guidanceCancelButton | The `<button>` element for the 'Cancel' button of the guidance dialog has this CSS class. | `btn-guidance-cancel` |
 
 Please note, that each of these keys accepts only one CSS class. This is necessary to enable the `AddToHomeScreen` component to use this CSS class as accessor to the corresponding
 HTML element. For your CSS ruleset you can add further CSS classes to the elements by the corresponding AddOns-keys that exist for each of the CSS class key in the table above.
@@ -227,7 +229,7 @@ platform (see section [Browser specific prompt dialog configuration](#browser-sp
 ## Example
 You can find an example under `examples/basic-integration`.
 
-To run it locally run `npm run start:basic-integration`. It ist then available under [http://localhost:8081](http://localhost:8081). 
+To run it locally run `npm run start:basic-integration`. It is then available under [http://localhost:8081](http://localhost:8081). 
 
 To build it run `npm run build:example-basic-integration`.
 
