@@ -13,7 +13,8 @@ A React component providing add-to-home-screen functionality for progressive web
 5. [Browser specific prompt dialog](#browser-specific-prompt-dialog-configuration)
 6. [Customizing add-to-homescreen prompt](#customizing-add-to-homescreen-prompt)
 7. [Examples](#examples)
-8. [Licence](#licence)
+8. [Live Demo](#live-demo)
+9. [Licence](#licence)
 
 ## What is it?
 
@@ -333,13 +334,22 @@ for the button. This can be done by definition of the `customPromptContent` dial
 the installation button. The other (missing) sub-parameters of the `customPromptContent` parameter are taken from default configuration of the Add-to-Homescreen component. See
 section [Custom Prompt Content](#custom-prompt-content) about configuration of the custom prompt dialog.
 
+## Live Demo
+
+A live demo is contained in `live-demo` directory. You can inspect it immediately on GitHub Pages under https://as-ideas.github.io/add-to-homescreen-react/.
+
+If you want to experiment by yourself you can build and deploy the live demo to your own GitHub page as follows:
+
+1. Run `npm run deploy:live-demo`
+2. Open your web browser and go to `https://<your-github-username>.github.io/add-to-homescreen-react/`
+ 
 ## Licence
 
 Copyright (c) 2014 Matteo Spinelli, http://cubiq.org/
 
 Copyright (c) 2019 Chris Love, http://love2dev.com/
 
-Copyright (c) 2020 Axel Springer Ideas Engineering GmbH, https://ideas-engineering.io/
+Copyright (c) 2019, 2020 Axel Springer Ideas Engineering GmbH, https://ideas-engineering.io/
 
 This software is subject to the provisions of [LPGLv3](http://www.gnu.de/documents/lgpl-3.0.de.html).
 

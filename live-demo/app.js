@@ -7,16 +7,16 @@ export default function App() {
   return (
       <div>
         <header>
-          <h1>Add-to-homescreen React Modified Styling Example</h1>
+          <h1>Add-to-homescreen React Live Demo</h1>
         </header>
         <main>
-          <p>React demo application for integration of Add-to-Homescreen React component with modified styling.</p>
+          <p>React demo application for integration of Add-to-Homescreen React component.</p>
         </main>
         <footer>
           <p>2020, <a href="https://www.ideas-engineering.io/" target="_blank">Ideas Engineering GmbH.</a></p>
         </footer>
         <AddToHomeScreen
-            appId='Add-to-Homescreen React Modified Styling Example'
+            appId='Add-to-Homescreen React Live Demo'
             startAutomatically={ true }
             startDelay={ 0 }
             lifespan={ 30 }
