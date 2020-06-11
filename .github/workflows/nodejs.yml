@@ -33,3 +33,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref }}
+    - name: deploy github pages
+      if: ${{ ${GITHUB_REF##*/} == "master" }}
+      run: |
+        npm run deploy:live-demo
