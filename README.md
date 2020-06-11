@@ -15,7 +15,6 @@ A React component providing add-to-home-screen functionality for progressive web
 7. [Examples](#examples)
 8. [Licence](#licence)
 
-
 ## What is it?
 
 `add-to-homescreen-react` allows you to easily inform your user that your React application is a PWA and installable on the home screen of your mobile phone or on your desktop. It provides a

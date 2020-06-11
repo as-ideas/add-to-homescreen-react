@@ -14,4 +14,4 @@
 
 # Node.js
 node_modules/*
-/examples/*/dist/
+**/dist/
