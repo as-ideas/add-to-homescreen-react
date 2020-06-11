@@ -237,6 +237,7 @@ The following examples are available:
 | [`basic-integration`](#example-basic-integration) | Demonstrates the simplest way to integrate the Add-to-Homescreen React component. |
 | [`guidance-images`](#example-guidance-images) | Demonstrates the integration of the Add-to-Homescreen React component with customized guidance images for browser platforms not supporting native add-to-homescreen dialogs. | 
 | [`modified-behavior`](#example-modified-behavior) | Demonstrates the integration of the Add-to-Homescreen React component with modification of its behavior. | 
+| [`modified-styling`](#example-modified-styling) | Demonstrates the integration of the Add-to-Homescreen React component with modification of its styling. | 
 
 ### Example `basic-integration`
 
@@ -289,7 +290,7 @@ This example can be found within directory `examples/modified-behavior`.
 #### Build & Run
 Build is done by command `npm run build:example-modified-behavior`. Compiled example is then available within directory `example/modified-behavior/dist`.
 
-Run the example locally with command `npm run start:example-guidance-images`. It is then available under [http://localhost:8083](http://localhost:8083). 
+Run the example locally with command `npm run start:example-modified-behavior`. It is then available under [http://localhost:8083](http://localhost:8083). 
 
 #### Description
 This example demonstrates the behavior modification of the Add-to-Homescreen React component by changing some of its configuration parameters. It creates a simple React application
@@ -306,13 +307,40 @@ parameter), the button texts (parameters `cancelMsg`, `installMsg` and `guidance
 
 See section [Configuration](#configuration-for-the-add-to-home-screen-module) for more details about the configuration parameters.
 
+### Example `modified-styling`
+
+#### Where to find
+This example can be found within directory `examples/modified-styling`.
+
+#### Build & Run
+Build is done by command `npm run build:example-modified-styling`. Compiled example is then available within directory `example/modified-styling/dist`.
+
+Run the example locally with command `npm run start:example-modified-styling`. It is then available under [http://localhost:8084](http://localhost:8084). 
+
+#### Description
+This example demonstrates the styling modification of the Add-to-Homescreen React component. It creates a simple React application with an `App` component (see the `app.js` file) 
+that integrates the Add-to-Homescreen React component by importing and adding it with its tag. To change the styling this tag is configured with the `customPromptElements` and the 
+`customPromptContent` parameters.
+
+The `customPromptElements` parameter assigns CSS classes to the HTML elements of the custom prompt dialog of the Add-to-Homescreen component. It is possible to define some of them
+only. For missing parameters their default configuration is used then. See section [Customizing add-to-homescreen prompt](#customizing-add-to-homescreen-prompt) for details about 
+the `customPromptElements` parameter.
+
+To change the styling we must provide a definition for the CSS classes we assigned within the `customPromptElements` parameter. These definitions can be found within the
+`modifiedStyling.scss` file. This file must be included in the `app.js` file.
+
+Our example demonstrates how the cancel button can be changed to be shown as a cross in the upper right corner of the custom prompt dialog. To achieve this we must remove the text
+for the button. This can be done by definition of the `customPromptContent` dialog. In our example we set the text of the cancel buttons to an empty string and change the text of
+the installation button. The other (missing) sub-parameters of the `customPromptContent` parameter are taken from default configuration of the Add-to-Homescreen component. See
+section [Custom Prompt Content](#custom-prompt-content) about configuration of the custom prompt dialog.
+
 ## Licence
 
 Copyright (c) 2014 Matteo Spinelli, http://cubiq.org/
 
 Copyright (c) 2019 Chris Love, http://love2dev.com/
 
-Copyright (c) 2019 Axel Springer Ideas Engineering GmbH, https://ideas-engineering.io/
+Copyright (c) 2020 Axel Springer Ideas Engineering GmbH, https://ideas-engineering.io/
 
 This software is subject to the provisions of [LPGLv3](http://www.gnu.de/documents/lgpl-3.0.de.html).
 

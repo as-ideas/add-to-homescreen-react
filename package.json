@@ -26,9 +26,11 @@
     "build:example-basic-integration": "webpack --mode production --config=examples/basic-integration/webpack.config.js",
     "build:example-guidance-images": "webpack --mode production --config=examples/guidance-images/webpack.config.js",
     "build:example-modified-behavior": "webpack --mode production --config=examples/modified-behavior/webpack.config.js",
+    "build:example-modified-styling": "webpack --mode production --config=examples/modified-styling/webpack.config.js",
     "start:example-basic-integration": "webpack-dev-server --config=examples/basic-integration/webpack.config.js",
     "start:example-guidance-images": "webpack-dev-server --config=examples/guidance-images/webpack.config.js",
-    "start:example-modified-behavior": "webpack-dev-server --config=examples/modified-behavior/webpack.config.js"
+    "start:example-modified-behavior": "webpack-dev-server --config=examples/modified-behavior/webpack.config.js",
+    "start:example-modified-styling": "webpack-dev-server --config=examples/modified-styling/webpack.config.js"
   },
   "dependencies": {
     "react": "16.13.1",
@@ -43,6 +45,7 @@
     "copy-webpack-plugin": "6.0.2",
     "css-loader": "3.5.3",
     "css-mediaquery": "0.1.2",
+    "file-loader": "6.0.0",
     "html-webpack-plugin": "4.3.0",
     "node-sass": "4.14.1",
     "prop-types": "15.7.2",
