@@ -340,8 +340,9 @@ A live demo is contained in `live-demo` directory. You can inspect it immediatel
 
 If you want to experiment by yourself you can build and deploy the live demo to your own GitHub page as follows:
 
-1. Run `npm run deploy:live-demo`
-2. Open your web browser and go to `https://<your-github-username>.github.io/add-to-homescreen-react/`
+1. Fork the repository
+2. Run `npm run deploy:live-demo`
+3. Open your web browser and go to `https://<your-github-username>.github.io/add-to-homescreen-react/`
  
 ## Licence
 
