@@ -7,10 +7,11 @@ import DEFAULT_CONFIGURATION from './addToHomeScreenConfiguration.json';
 export default function AddToHomeScreen(props) {
 
   const DEFAULT_PROMPT = {
-    title: 'Install application?',
-    cancelMsg: 'Not Now',
+    title: 'Do you want to install this application on your homescreen?',
+    cancelMsg: 'Not now',
     installMsg: 'Install',
-    guidanceCancelMsg: 'Close'
+    guidanceCancelMsg: 'Close',
+    src: 'images/logos/default/StoreLogo.png'
   };
 
   const DEFAULT_SESSION = {
@@ -39,16 +40,15 @@ export default function AddToHomeScreen(props) {
   useEffect(initialize, []);
 
   function initialize() {
-    doLog('Add to Homescreen init');
     if ('onbeforeinstallprompt' in window) {
-      doLog('Add to Homescreen add handleBeforeInstallPrompt listener');
+      doLog('add beforeinstallprompt listener');
       window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
       showNativePrompt = true;
 
     }
     if ('onappinstalled' in window) {
       window.addEventListener('appinstalled', function (evt) {
-        doLog('a2hs installed');
+        doLog('A2HS installed');
         session.added = true;
         updateSession();
         if (configuration.onInstall) {
@@ -73,8 +73,11 @@ export default function AddToHomeScreen(props) {
         doLog('no manifest file');
         platform.isCompatible = false;
       }
-      navigator.serviceWorker.getRegistration().then(afterServiceWorkerCheck);
-      buildGuidanceURLs(configuration.customPromptPlatformDependencies);
+      setTimeout(function () {
+        // we wait 1 sec until we execute this because sometimes the browser needs a little time to register the service worker
+        navigator.serviceWorker.getRegistration().then(afterServiceWorkerCheck);
+        buildGuidanceURLs(configuration.customPromptPlatformDependencies);
+      }, 1000);
     } else {
       afterServiceWorkerCheck({});
     }
@@ -103,11 +106,10 @@ export default function AddToHomeScreen(props) {
   function buildGuidanceURLs(prompts) {
     for (let key in prompts) {
       if (prompts.hasOwnProperty(key)) {
-          doLog('Add to Homescreen: buildGuidanceURLs: '+key)
         let target = prompts[key].targetUrl;
 
+        doLog('building guidance urls: ' + key + target ? '/' + target : '');
         if (target) {
-          doLog('Add to Homescreen: buildGuidanceURLs: '+key+'/'+target)
           guidanceTargetUrls.push(target);
         }
       }
@@ -124,7 +126,7 @@ export default function AddToHomeScreen(props) {
    */
   function showPlatformGuidance(skipNative) {
     let target = getPlatform(skipNative);
-    doLog('Add to homescreen: showPlatformGuidance for: ' + target);
+    doLog('showing platform guidance for: ' + target);
     let athWrapper = document.querySelector(`.${ configuration.customPromptElements.container }`);
 
     if (athWrapper) {
@@ -192,7 +194,7 @@ export default function AddToHomeScreen(props) {
       doLog('no service worker');
       platform.isCompatible = false;
     }
-    doLog('Add to homescreen: service worker found increasing pageviews');
+    doLog('service worker found - increasing page views');
 
     session.pageViews += 1;
     updateSession();
@@ -200,18 +202,6 @@ export default function AddToHomeScreen(props) {
     // override defaults that are dependent on each other
     if (configuration && configuration.debug && (typeof configuration.activateLogging === 'undefined')) {
       configuration.activateLogging = true;
-    }
-
-    // normalize some options
-    configuration.isMandatory = configuration.isMandatory && ('standalone' in window.navigator || configuration.debug);
-
-    // this is forcing the user to add to home screen before anything can be done
-    // the ideal scenario for this would be an enterprise business application
-    // could also be a part of an onboarding workflow for a SAAS
-    configuration.isModal = configuration.isModal || configuration.isMandatory;
-
-    if (configuration.isMandatory) {
-      configuration.startDelay = -0.5; // make the popup hasty
     }
 
     // setup the debug environment
@@ -223,21 +213,22 @@ export default function AddToHomeScreen(props) {
       configuration.onInit.call(this);
     }
 
-      doLog('Add to home screen: decide to show: autoStart: '+configuration.startAutomatically+' ### beforeInstallPromptEvent: '+beforeInstallPromptEvent+' ### showNativePrompt: '+showNativePrompt);
+    doLog('decide to show: autoStart: ' + configuration.startAutomatically + ' ### beforeInstallPromptEvent: ' + beforeInstallPromptEvent + ' ### showNativePrompt: ' + showNativePrompt);
     if (configuration.startAutomatically && !!beforeInstallPromptEvent) {
-      doLog('Add to home screen: autoStart displaying callout');
+      doLog('autoStart - displaying call-out');
       show();
     } else if (!showNativePrompt) {
+      doLog('not showing native prompt - displaying call-out');
       show();
-    }else {
-      doLog('Add to home screen: did decide to show nothing');
+    } else {
+      doLog('did decide to show nothing');
     }
 
   }
 
   function doLog(logString) {
     if (configuration.activateLogging) {
-      console.log(logString);
+      console.log('Add to Homescreen: ' + logString);
     }
   }
 
@@ -248,7 +239,7 @@ export default function AddToHomeScreen(props) {
   function checkPlatform() {
     // browser info and capability
     let userAgent = window.navigator.userAgent;
-    doLog('Add to homescreen: checkPlatform found useraget: ' + userAgent);
+    doLog('checking platform - found user agent: ' + userAgent);
 
     platform.isIDevice = (/iphone|ipod|ipad/i).test(userAgent);
     platform.isSamsung = /Samsung/i.test(userAgent);
@@ -316,7 +307,7 @@ export default function AddToHomeScreen(props) {
   function show() {
     // message already on screen
     if (isAthDialogShown) {
-      doLog('Add to home screen: not displaying callout because already shown on screen');
+      doLog('not displaying call-out because already shown on screen');
       return;
     }
 
@@ -410,9 +401,9 @@ export default function AddToHomeScreen(props) {
   }
 
   function canPrompt() {
-    // already evaluated the situation, so don't do it again
     if (canPromptState !== undefined) {
-      doLog('Add to home screen: canPrompt already evaluated: ' + canPromptState.toString());
+      // already evaluated the situation, so don't do it again
+      doLog('canPrompt() already evaluated: ' + canPromptState.toString());
       return canPromptState;
     }
 
@@ -422,7 +413,7 @@ export default function AddToHomeScreen(props) {
       let passCustom = typeof configuration.customCriteria === 'function' ? configuration.customCriteria() : !!configuration.customCriteria;
 
       if (!passCustom) {
-        doLog('Add to home screen: not displaying callout because a custom criteria was not met.');
+        doLog('not displaying call-out because a custom criteria was not met.');
         return false;
       }
     }
@@ -430,13 +421,14 @@ export default function AddToHomeScreen(props) {
     // using a double negative here to detect if service workers are not supported
     // if not then don't bother asking to add to install the PWA
     if (!('serviceWorker' in navigator)) {
-      doLog('Add to home screen: not displaying callout because service workers are not supported');
+      doLog('not displaying call-out because service workers are not supported');
       return false;
     }
 
     // the device is not supported
     if (!platform.isCompatible) {
-      doLog('Add to home screen: not displaying callout because device not supported');
+      doLog('not displaying call-out because device not supported');
+      doLog('platform: ' + JSON.stringify(platform));
       return false;
     }
 
@@ -445,13 +437,13 @@ export default function AddToHomeScreen(props) {
 
     // we obey the display pace (prevent the message to popup too often)
     if (now - lastDisplayTime < configuration.displayPace * 60000) {
-      doLog('Add to home screen: not displaying callout because displayed recently');
+      doLog('not displaying call-out because displayed recently');
       return false;
     }
 
     // obey the maximum number of display count
     if (configuration.maxDisplayCount && session.displayCount >= configuration.maxDisplayCount) {
-      doLog('Add to home screen: not displaying callout because displayed too many times already');
+      doLog('not displaying call-out because displayed too many times already');
       return false;
     }
 
@@ -469,7 +461,7 @@ export default function AddToHomeScreen(props) {
     }
 
     if (!isValidLocation) {
-      doLog('Add to home screen: not displaying callout because not a valid location');
+      doLog('not displaying call-out because not a valid location');
       return false;
     }
 
@@ -483,23 +475,23 @@ export default function AddToHomeScreen(props) {
     }
 
     if (isGuidanceURL) {
-      doLog('Add to home screen: not displaying callout because this is a guidance URL');
+      doLog('not displaying call-out because this is a guidance URL');
       return false;
     }
 
     if (session.pageViews < configuration.minPageViews) {
-      doLog('Add to home screen: not displaying callout because not enough visits');
+      doLog('not displaying call-out because not enough visits');
       return false;
     }
 
     // critical errors:
     if (session.optedOut) {
-      doLog('Add to home screen: not displaying callout because user opted out');
+      doLog('not displaying call-out because user opted out');
       return false;
     }
 
     if (session.added) {
-      doLog('Add to home screen: not displaying callout because already added to the home screen');
+      doLog('not displaying call-out because already added to the home screen');
       return false;
     }
 
@@ -517,7 +509,7 @@ export default function AddToHomeScreen(props) {
         }
       }
 
-      doLog('Add to home screen: not displaying callout because in standalone mode');
+      doLog('not displaying call-out because in standalone mode');
       return false;
     }
 
@@ -528,7 +520,7 @@ export default function AddToHomeScreen(props) {
 
       // we do not show the message if this is your first visit
       if (configuration.skipFirstVisit) {
-        doLog('Add to home screen: not displaying callout because skipping first visit');
+        doLog('not displaying call-out because skipping first visit');
         return false;
       }
     }
@@ -548,7 +540,7 @@ export default function AddToHomeScreen(props) {
           session.added = (choiceResult.outcome === 'accepted');
 
           if (session.added) {
-            doLog('User accepted the A2HS prompt');
+            doLog('user accepted the A2HS prompt');
             if (configuration.onAdd) {
               configuration.onAdd();
             }
@@ -557,7 +549,7 @@ export default function AddToHomeScreen(props) {
               configuration.onCancel();
             }
             session.optedOut = true;
-            doLog('User dismissed the A2HS prompt');
+            doLog('user dismissed the A2HS prompt');
           }
           updateSession();
           beforeInstallPromptEvent = null;
@@ -665,8 +657,6 @@ AddToHomeScreen.propTypes = {
   appId: PropTypes.string,
   debug: PropTypes.string,
   activateLogging: PropTypes.bool,
-  isModal: PropTypes.bool,
-  isMandatory: PropTypes.bool,
   startAutomatically: PropTypes.bool,
   skipFirstVisit: PropTypes.bool,
   minPageViews: PropTypes.number,

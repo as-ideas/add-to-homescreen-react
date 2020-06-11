@@ -7,8 +7,8 @@
     <meta content="Example for a simple integration of the Add-to-homescreen React component." name="description">
     <meta content="yes" name="mobile-web-app-capable">
     <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta content="ATH Example" name="application-name">
-    <meta content="ATH Example" name="apple-mobile-web-app-title">
+    <meta content="Add-to-homescreen React Basic Integration Example" name="application-name">
+    <meta content="Add-to-homescreen React Basic Integration Example" name="apple-mobile-web-app-title">
     <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
     <meta content="/" name="msapplication-starturl">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
@@ -47,7 +47,7 @@
 <script type="application/javascript">
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
-      navigator.serviceWorker.register('serviceWorker.js', { scope: '/add-to-homescreen-react/' }).then(function (registration) {
+      navigator.serviceWorker.register('serviceWorker.js', { scope: '/' }).then(function (registration) {
         // Registration was successful
         console.debug('ServiceWorker registration successful with scope: ', registration.scope);
       }, function (err) {
@@ -57,7 +57,7 @@
     });
   }
 </script>
-<div id="basic-ath-react-integration-example"></div>
+<div id="ath-react-basic-integration-example"></div>
 
 </body>
 </html>
