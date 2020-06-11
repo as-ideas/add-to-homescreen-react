@@ -1,7 +1,6 @@
 name: Node CI
 
 on: [push]
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -34,6 +33,6 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref }}
     - name: deploy github pages
-      if: contains(${GITHUB_REF#refs/heads/}, "master")
+      if: contains(${{ github.ref }}, "master")
       run: |
         npm run deploy:live-demo
