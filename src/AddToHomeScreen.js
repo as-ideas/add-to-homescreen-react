@@ -206,18 +206,6 @@ export default function AddToHomeScreen(props) {
       configuration.activateLogging = true;
     }
 
-    // normalize some options
-    configuration.isMandatory = configuration.isMandatory && ('standalone' in window.navigator || configuration.debug);
-
-    // this is forcing the user to add to home screen before anything can be done
-    // the ideal scenario for this would be an enterprise business application
-    // could also be a part of an onboarding workflow for a SAAS
-    configuration.isModal = configuration.isModal || configuration.isMandatory;
-
-    if (configuration.isMandatory) {
-      configuration.startDelay = -0.5; // make the popup hasty
-    }
-
     // setup the debug environment
     if (configuration.debug) {
       platform.isCompatible = true;
@@ -670,8 +658,6 @@ AddToHomeScreen.propTypes = {
   appId: PropTypes.string,
   debug: PropTypes.string,
   activateLogging: PropTypes.bool,
-  isModal: PropTypes.bool,
-  isMandatory: PropTypes.bool,
   startAutomatically: PropTypes.bool,
   skipFirstVisit: PropTypes.bool,
   minPageViews: PropTypes.number,

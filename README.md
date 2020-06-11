@@ -50,8 +50,6 @@ Configuration is defined in the `addToHomeScreenConfiguration.json` file. The fo
 | appId | The id of the application. It is used as key for the local storage entry. It is recommended to define it specifically for your application. | `add-to-homescreen-react` |
 | debug | Indicates the platform that should be simulated for debugging purposes. Overrides browser checks. See section [Browser specific prompt dialog configuration](#browser-specific-prompt-dialog-configuration) for the list of supported platform keys. | `false` |
 | activateLogging | Activate logging to JS console for the module. Defaults to `true` when `debug` is not `false`. | `false` | 
-| isModal | Prevent further actions until the message is closed. | `false` |
-| isMandatory | User can't proceed without adding the app to the home screen. | `false` |
 | startAutomatically | Show the message automatically. | `true` |
 | skipFirstVisit | Show message only to returning visitors (i.e. skip the first time the user visits). | `false` |
 | minPageViews | Show message only after minimum number of page views. | `0` |
@@ -291,7 +289,7 @@ This example can be found within directory `examples/modified-behavior`.
 #### Build & Run
 Build is done by command `npm run build:example-modified-behavior`. Compiled example is then available within directory `example/modified-behavior/dist`.
 
-Run the example locally with command `npm run start:example-guidance-images`. It is then available under [http://localhost:8082](http://localhost:8082). 
+Run the example locally with command `npm run start:example-guidance-images`. It is then available under [http://localhost:8083](http://localhost:8083). 
 
 #### Description
 This example demonstrates the behavior modification of the Add-to-Homescreen React component by changing some of its configuration parameters. It creates a simple React application
