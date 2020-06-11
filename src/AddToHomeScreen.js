@@ -74,8 +74,11 @@ export default function AddToHomeScreen(props) {
         doLog('no manifest file');
         platform.isCompatible = false;
       }
-      navigator.serviceWorker.getRegistration().then(afterServiceWorkerCheck);
-      buildGuidanceURLs(configuration.customPromptPlatformDependencies);
+      setTimeout(function () {
+        // we wait 1 sec until we execute this because sometimes the browser needs a little time to register the service worker
+        navigator.serviceWorker.getRegistration().then(afterServiceWorkerCheck);
+        buildGuidanceURLs(configuration.customPromptPlatformDependencies);
+      }, 1000);
     } else {
       afterServiceWorkerCheck({});
     }

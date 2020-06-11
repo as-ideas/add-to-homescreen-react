@@ -14,7 +14,9 @@ export default function App() {
         <footer>
           <p>2020, <a href="https://www.ideas-engineering.io/" target="_blank">Ideas Engineering GmbH.</a></p>
         </footer>
-        <AddToHomeScreen/>
+        <AddToHomeScreen
+            appId='Add-to-Homescreen React Basic Integration Example'
+        />
       </div>
   );
 }

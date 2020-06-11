@@ -20,7 +20,7 @@ A React component providing add-to-home-screen functionality for progressive web
 
 `add-to-homescreen-react` allows you to easily inform your user that your React application is a PWA and installable on the home screen of your mobile phone or on your desktop. It provides a
 highly configurable React component named `AddToHomeScreen` that supports different browsers and platforms. Where possible, browser's native add-to-homescreen functionality is used.
-Where not, a guidance for the user can be shown.
+Where not, a guidance for the user is shown.
 
 This library is based on the [`add-to-homescreen`](https://github.com/docluv/add-to-homescreen) project of [Chris Love](https://github.com/docluv).
 
@@ -75,6 +75,9 @@ Configuration is defined in the `addToHomeScreenConfiguration.json` file. The fo
 | customPromptPlatformDependencies | See section [Browser specific prompt dialog configuration](#browser-specific-prompt-dialog-configuration). | |
 
 ## Custom Prompt Content
+
+The custom prompt is a dialog shown by the Add-to-Homescreen component if the browser does not support a native dialog or this native dialog is not available yet because there was
+no user interaction (user gesture) yet when the component is invoked.
 
 The `customPromptContent` configuration parameter allows to globally define (for all platforms) the content of the custom prompt dialog. It contains the following customizable parameters:
 
@@ -235,6 +238,7 @@ The following examples are available:
 |---|---|
 | [`basic-integration`](#example-basic-integration) | Demonstrates the simplest way to integrate the Add-to-Homescreen React component. |
 | [`guidance-images`](#example-guidance-images) | Demonstrates the integration of the Add-to-Homescreen React component with customized guidance images for browser platforms not supporting native add-to-homescreen dialogs. | 
+| [`modified-behavior`](#example-modified-behavior) | Demonstrates the integration of the Add-to-Homescreen React component with modification of its behavior. | 
 
 ### Example `basic-integration`
 
@@ -278,6 +282,31 @@ So it is possible to specify only the keys that you really want to change like g
 All other configuration keys are taken from default configuration too. So the Add-to-Homescreen React component is shown automatically on first invocation
 of the application for a limited time. After that it is shown again after one day. See section [Configuration](#configuration-for-the-add-to-home-screen-module) for details about the
 default configuration.
+
+### Example `modified-behavior`
+
+#### Where to find
+This example can be found within directory `examples/modified-behavior`.
+
+#### Build & Run
+Build is done by command `npm run build:example-modified-behavior`. Compiled example is then available within directory `example/modified-behavior/dist`.
+
+Run the example locally with command `npm run start:example-guidance-images`. It is then available under [http://localhost:8082](http://localhost:8082). 
+
+#### Description
+This example demonstrates the behavior modification of the Add-to-Homescreen React component by changing some of its configuration parameters. It creates a simple React application
+with an `App` component (see the `app.js` file) that integrates the Add-to-Homescreen React component by importing and adding it with its tag. This tag is configured with some
+parameters that change the behavior. It is possible to define some of them only. For missing parameters their default configuration is used then.
+
+In this example the Add-to-Homescreen React component is shown automatically (`startAutomatically = true`) directly after page load (`startDelay = 0`) for thirty seconds
+(`lifespan = 30`) - except for the user's first visit of the page (`skipFirstVisit = true`). Therefore, the component is only shown when the page is reloaded after the first call. 
+Normally, with its default configuration, the component is shown once per day. In this example, the component is shown each time the user visits the page until the user confirms 
+adding it to the homescreen (`displayPace = 0`). 
+
+Furthermore, the example demonstrates how to change the custom prompt dialog using the `customPromptContent` configuration parameter. We change the text of the dialog (`title`
+parameter), the button texts (parameters `cancelMsg`, `installMsg` and `guidanceCancelMsg`) and the logo (`src` parameter).
+
+See section [Configuration](#configuration-for-the-add-to-home-screen-module) for more details about the configuration parameters.
 
 ## Licence
 

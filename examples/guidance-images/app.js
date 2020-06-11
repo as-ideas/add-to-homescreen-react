@@ -15,6 +15,7 @@ export default function App() {
           <p>2020, <a href="https://www.ideas-engineering.io/" target="_blank">Ideas Engineering GmbH.</a></p>
         </footer>
         <AddToHomeScreen
+            appId='Add-to-Homescreen React Customized Guidance Images Example'
             customPromptPlatformDependencies={ {
               chromium: {
                 images: [

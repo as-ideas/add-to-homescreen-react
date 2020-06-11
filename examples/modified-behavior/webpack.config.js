@@ -6,7 +6,7 @@ module.exports = () => {
   const outputFolder = Path.join(__dirname, './dist');
 
   return {
-    entry: ['./examples/basic-integration/index.js'],
+    entry: ['./examples/modified-behavior/index.js'],
     module: {
       rules: [
         {
@@ -43,18 +43,18 @@ module.exports = () => {
     },
     devServer: {
       contentBase: outputFolder,
-      port: 8081,
+      port: 8083,
       historyApiFallback: true
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: 'examples/basic-integration/index.html',
+        template: 'examples/modified-behavior/index.html',
         filename: 'index.html'
       }),
       new CopyWebpackPlugin({
         patterns: [
           {
-            context: 'examples/basic-integration/public',
+            context: 'examples/modified-behavior/public',
             from: '**/*',
             to: outputFolder
           },

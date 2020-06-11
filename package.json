@@ -25,8 +25,10 @@
     "build": "webpack --mode production",
     "build:example-basic-integration": "webpack --mode production --config=examples/basic-integration/webpack.config.js",
     "build:example-guidance-images": "webpack --mode production --config=examples/guidance-images/webpack.config.js",
+    "build:example-modified-behavior": "webpack --mode production --config=examples/modified-behavior/webpack.config.js",
     "start:example-basic-integration": "webpack-dev-server --config=examples/basic-integration/webpack.config.js",
-    "start:example-guidance-images": "webpack-dev-server --config=examples/guidance-images/webpack.config.js"
+    "start:example-guidance-images": "webpack-dev-server --config=examples/guidance-images/webpack.config.js",
+    "start:example-modified-behavior": "webpack-dev-server --config=examples/modified-behavior/webpack.config.js"
   },
   "dependencies": {
     "react": "16.13.1",

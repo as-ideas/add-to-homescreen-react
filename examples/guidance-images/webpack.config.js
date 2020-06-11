@@ -59,7 +59,7 @@ module.exports = () => {
             to: outputFolder
           },
           {
-            context: 'images/',
+            context: 'src/images/',
             from: '**/*',
             to: outputFolder + '/images'
           }]
