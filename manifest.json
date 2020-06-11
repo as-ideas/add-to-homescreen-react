@@ -1,11 +1,11 @@
 {
-  "start_url": "/add-to-homescreen-react/",
-  "scope": "/add-to-homescreen-react/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "orientation": "any",
   "serviceworker": {
     "src": "serviceWorker.js",
-    "scope": "/add-to-homescreen-react/"
+    "scope": "/"
   },
   "icons": [
     {
@@ -74,7 +74,7 @@
       "sizes": "150x150"
     },
     {
-      "src": "images/logos/windows10/Square44x44Logo.scale-100.png",
+      "src": "images/logos/windows10/Square88x88Logo.scale-200.png",
       "type": "image/png",
       "sizes": "88x88"
     },
