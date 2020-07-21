@@ -1,0 +1,133 @@
+.athContainer {
+  background-color: #eeeeee;
+  color: #000000;
+  display: none;
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  z-index: 1000;
+  padding: 2%;
+}
+
+@media (min-width: 768px) {
+
+  .athContainer {
+    padding: 0.5%;
+    max-width: 530px;
+    margin: auto;
+    width: 75%;
+  }
+
+}
+
+@media (min-width: 1048px) {
+
+  .athContainer {
+    width: 100%;
+    position: fixed;
+    right: 0;
+  }
+
+}
+
+.athBanner {
+  display: grid;
+  grid-template-areas: 'logo content' 'install install';
+  position: relative;
+  grid-template-columns: 1fr 3fr;
+
+  .athCancelButton {
+    background: url("images/icons/close.svg") no-repeat;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    position: absolute;
+    border: 0;
+    margin-right: 3px;
+    margin-top: 3px;
+    padding: 0;
+    top: 0;
+    right: 0;
+  }
+
+}
+
+.athContentCell {
+  align-items: center;
+}
+
+.athLogoCell {
+  text-align: center;
+  grid-area: logo;
+}
+
+.athTitleCell {
+  align-self: center;
+  grid-area: content;
+}
+
+.athInstallButtonCell {
+  text-align: right;
+  grid-area: install;
+
+  .button {
+    display: unset;
+  }
+}
+
+.athGuidance {
+  display: none;
+  grid-template-areas: 'cancel' 'image';
+  position: relative;
+
+  .athCancelButtonCell {
+    grid-area: cancel;
+    text-align: right;
+  }
+
+}
+
+.athGuidanceImageCell {
+  grid-area: image;
+  text-align: center;
+}
+
+.athGuidanceCancelButton {
+  background: url("images/icons/close.svg") no-repeat;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  border: 0;
+}
+
+.athLogo {
+  border-radius: 30px;
+  border: 1px solid black;
+}
+
+.athTitle {
+  font-weight: bold;
+  font-size: large;
+  width: 90%;
+}
+
+.d-grid {
+  display: grid !important;
+}
+
+.button {
+  text-decoration: none;
+  border: none;
+  display: flex;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: uppercase;
+  height: 30px;
+  padding: 0 20px;
+  outline: none;
+  align-items: center;
+  background: #0000ff;
+  color: #ffffff;
+
+}
