@@ -6,7 +6,7 @@ module.exports = () => {
   const outputFolder = Path.join(__dirname, './dist');
 
   return {
-    entry: ['./examples/live-demo/index.js'],
+    entry: ['./live-demo/index.js'],
     module: {
       rules: [
         {
@@ -48,13 +48,13 @@ module.exports = () => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: 'examples/live-demo/index.html',
+        template: 'live-demo/index.html',
         filename: 'index.html'
       }),
       new CopyWebpackPlugin({
         patterns: [
           {
-            context: 'examples/live-demo/public',
+            context: 'live-demo/public',
             from: '**/*',
             to: outputFolder
           },

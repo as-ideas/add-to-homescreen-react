@@ -1,5 +1,5 @@
 import React from 'react';
-import AddToHomeScreen from '../../src/AddToHomeScreen';
+import AddToHomeScreen from '../src/AddToHomeScreen';
 import './modifiedStyling.scss';
 
 export default function App() {

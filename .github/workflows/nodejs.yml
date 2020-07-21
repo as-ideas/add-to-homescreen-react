@@ -11,6 +11,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Branch name
+      run: echo running on branch ${{ github.ref }}
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -33,6 +35,6 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref }}
     - name: deploy github pages
-      if: contains(${{ github.ref }}, "master")
+      if: contains(github.ref, 'master')
       run: |
         npm run deploy:live-demo
