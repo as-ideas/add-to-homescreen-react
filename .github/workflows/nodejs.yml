@@ -34,9 +34,10 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref }}
-    - name: deploy github pages
+    - name: Deploy 🚀
       if: contains(github.ref, 'master')
-      run: |
-        git config --local user.email "sheldons@asideas.de"
-        git config --local user.name "AS Ideas"
-        npm run deploy:live-demo
+      uses: JamesIves/github-pages-deploy-action@3.5.7
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
+        folder: live-demo
