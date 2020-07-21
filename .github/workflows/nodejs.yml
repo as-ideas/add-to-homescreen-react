@@ -37,4 +37,6 @@ jobs:
     - name: deploy github pages
       if: contains(github.ref, 'master')
       run: |
+        git config --local user.email "sheldons@asideas.de"
+        git config --local user.name "AS Ideas"
         npm run deploy:live-demo
