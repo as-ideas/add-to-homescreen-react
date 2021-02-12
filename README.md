@@ -29,7 +29,7 @@ This library is based on the [`add-to-homescreen`](https://github.com/docluv/add
 First import the component:
 
 ```
-import AddToHomeScreen from 'add-to-homescreen-react';
+import AddToHomeScreen from '@ideasio/add-to-homescreen-react';
 ```
 
 Then add the component to your app:
