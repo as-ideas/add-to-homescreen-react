@@ -36,8 +36,8 @@
     "deploy:live-demo": "gh-pages -d live-demo/dist"
   },
   "peerDependencies": {
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react": "~16.13.1",
+    "react-dom": "~16.13.1"
   },
   "devDependencies": {
     "react": "16.13.1",
