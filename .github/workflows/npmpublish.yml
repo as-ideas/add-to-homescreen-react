@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
-        name: Use Node.js ${{ matrix.node-version }}
+        name: Use Node.js version ${{ matrix.node-version }}
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
-        name: Use Node.js ${{ matrix.node-version }}
+        name: Use Node.js version ${{ matrix.node-version }}
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org/
