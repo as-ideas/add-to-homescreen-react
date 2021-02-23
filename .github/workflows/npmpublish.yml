@@ -7,11 +7,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
+        name: Use Node.js version ${{ matrix.node-version }}
         with:
-          node-version: 12
+          node-version: ${{ matrix.node-version }}
       - run: npm ci
 
   publish-npm:
@@ -20,10 +24,12 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
+        name: Use Node.js version ${{ matrix.node-version }}
         with:
-          node-version: 12
+          node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
