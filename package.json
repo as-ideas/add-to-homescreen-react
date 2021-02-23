@@ -1,9 +1,9 @@
 {
   "name": "@ideasio/add-to-homescreen-react",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A React component providing add-to-home-screen functionality for progressive webapps on different platforms and browsers.",
   "main": "build/AddToHomeScreen.js",
-  "license": "LGPLv3",
+  "license": "LGPL-3.0-only",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/as-ideas/add-to-homescreen-react.git"
@@ -35,13 +35,13 @@
     "predeploy:live-demo": "npm run build:live-demo",
     "deploy:live-demo": "gh-pages -d live-demo/dist"
   },
-  "dependencies": {
-    "react": "17.0.1",
-    "react-dom": "17.0.1"
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
-  "peerDependencies": {},
-
   "devDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "@babel/core": "7.12.17",
     "@babel/preset-env": "7.12.17",
     "@babel/preset-react": "7.12.13",

@@ -37,7 +37,7 @@ jobs:
         branch: ${{ github.ref }}
     - name: Deploy 🚀
       if: contains(github.ref, 'master')
-      uses: JamesIves/github-pages-deploy-action@3.5.7
+      uses: JamesIves/github-pages-deploy-action@4.0.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: gh-pages
