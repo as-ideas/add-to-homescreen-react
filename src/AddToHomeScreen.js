@@ -269,7 +269,7 @@ export default function AddToHomeScreen(props) {
 
   function getPlatform(native) {
     if (configuration.debug && typeof configuration.debug === 'string') {
-      return configuration.debug;
+      return 'native';
     }
 
     if (platform.isChromium && native === undefined) {
