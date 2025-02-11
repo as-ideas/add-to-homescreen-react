@@ -1,3 +1,5 @@
+# This repo will be archived and will not be supported any more. There are many alternatives to this in the current react landscape.
+
 # add-to-homescreen-react
 [![Latest Release](https://img.shields.io/github/release/as-ideas/add-to-homescreen-react.svg)](https://github.com/as-ideas/add-to-homescreen-react) 
 [![npm version](https://img.shields.io/npm/v/@ideasio/add-to-homescreen-react.svg)](https://www.npmjs.com/package/@ideasio/add-to-homescreen-react)
